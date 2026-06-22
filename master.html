@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Полная карта West Coast Swing — WIY</title>
+  <meta name="description" content="Полная карта навыков West Coast Swing — все компетенции от первого социала до Champion. Синтез из диприсёрчей ведущих школ и преподавателей.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 id="page-title">Полная карта West Coast Swing</h1>
+      <p id="page-subtitle" class="subtitle"></p>
+      <nav class="map-switch">
+        <a href="index.html" class="map-switch-link">← Все версии</a>
+        <a href="master.html" class="map-switch-link active">Интерактивная карта</a>
+      </nav>
+      <p class="map-versions">Версии этой карты: <a href="master-full.html">📄 Полная (все подробности)</a> · <a href="master-atlas.svg">🗺️ Атлас одним листом</a> · <a href="master-poster.svg">🖼 Обзорный плакат</a> · <a href="MASTER-MAP.md">📝 Документ</a></p>
+    </div>
+  </header>
+
+  <div class="progress-wrap container">
+    <div class="progress-stats">
+      <span class="stat">
+        <span class="stat-icon">👀</span>
+        <span class="stat-value" id="stat-seen">0</span>
+        <span class="stat-label">видел</span>
+      </span>
+      <span class="stat">
+        <span class="stat-icon">💪</span>
+        <span class="stat-value" id="stat-confident">0</span>
+        <span class="stat-label">делаю свободно</span>
+      </span>
+      <span class="stat stat-total">
+        <span class="stat-value" id="stat-total">/&nbsp;0</span>
+      </span>
+      <button id="reset-btn" class="btn-reset" type="button" aria-label="Сбросить отметки">Сбросить</button>
+    </div>
+    <div class="progress-bar" role="progressbar" aria-label="Общий прогресс">
+      <div class="progress-fill progress-confident" id="bar-confident"></div>
+      <div class="progress-fill progress-seen" id="bar-seen"></div>
+    </div>
+  </div>
+
+  <div class="legend container">
+    <span class="legend-item">
+      <span class="state-icon state-0">🔒</span>
+      <span>Не проходил</span>
+    </span>
+    <span class="legend-item">
+      <span class="state-icon state-1">👀</span>
+      <span>Видел / пробовал</span>
+    </span>
+    <span class="legend-item">
+      <span class="state-icon state-2">💪</span>
+      <span>Делаю свободно</span>
+    </span>
+    <span class="legend-hint">Клик по элементу — детали. Shift+клик — быстрое переключение. Прогресс сохраняется в браузере.</span>
+  </div>
+
+  <!-- Maturity model: 4 stages -->
+  <section class="section container">
+    <div class="section-head">
+      <h2>Четыре стадии зрелости</h2>
+      <p>Каждый навык растёт через эти стадии. Они объединяют конкурсную лестницу WSDC и модель мастерства Дрейфуса — единая шкала «где я» для всей карты.</p>
+    </div>
+    <div id="maturity-legend" class="maturity-legend"></div>
+  </section>
+
+  <!-- Reconciliation callout -->
+  <section class="section container">
+    <div class="section-head">
+      <h2>Навыки — это хребет, паттерны — слой применения</h2>
+    </div>
+    <div id="reconciliation" class="reconcile"></div>
+  </section>
+
+  <!-- Branches -->
+  <div class="section-head container">
+    <h2>Карта компетенций</h2>
+    <p>14 веток. Внутри каждой — элементы, разложенные по 4 стадиям зрелости. Отмечай, что уже видел и что делаешь свободно.</p>
+  </div>
+  <main id="branches" class="branches container" aria-live="polite"></main>
+
+  <!-- Directions -->
+  <section class="section container">
+    <div class="section-head">
+      <h2>Куда расти дальше</h2>
+      <p>Один танец — много путей. Выбери линзу, которая ближе тебе сейчас: под каждой — ключевые ветки карты.</p>
+    </div>
+    <div id="directions" class="directions"></div>
+  </section>
+
+  <!-- Glossary -->
+  <section class="section container">
+    <div class="section-head">
+      <h2>Глоссарий ключевых терминов</h2>
+      <p>Слова, которые ты услышишь на занятиях и вечеринках.</p>
+    </div>
+    <dl id="glossary" class="glossary"></dl>
+  </section>
+
+  <footer class="site-footer container">
+    <p id="footer-note"></p>
+    <p class="footer-meta">
+      <span id="footer-version"></span>
+      <span class="footer-link">🗺️ Master map v1.0 · синтез 132+ источников и McKeever Deep Roots</span>
+    </p>
+  </footer>
+
+  <dialog id="item-modal" class="item-modal" aria-labelledby="modal-title">
+    <article>
+      <header class="modal-header">
+        <h2 id="modal-title"></h2>
+        <button id="modal-close" class="modal-close" type="button" aria-label="Закрыть">×</button>
+      </header>
+      <p id="modal-subtitle" class="modal-subtitle"></p>
+      <p id="modal-description"></p>
+      <div id="modal-why" class="modal-why" hidden>
+        <h3>Зачем это</h3>
+        <span id="modal-why-text"></span>
+      </div>
+      <div id="modal-trains" class="modal-trains" hidden>
+        <h3>Тренирует навыки:</h3>
+        <ul id="modal-trains-list"></ul>
+      </div>
+      <div id="modal-patterns" class="modal-patterns" hidden>
+        <h3>Примеры паттернов:</h3>
+        <ul id="modal-patterns-list"></ul>
+      </div>
+      <div id="modal-video" class="modal-video" hidden>
+        <h3>Видео-референс</h3>
+        <a id="modal-video-link" href="#" target="_blank" rel="noopener"></a>
+      </div>
+      <div class="modal-states">
+        <button class="state-btn state-0" data-state="0">🔒 Не проходил</button>
+        <button class="state-btn state-1" data-state="1">👀 Видел</button>
+        <button class="state-btn state-2" data-state="2">💪 Свободно</button>
+      </div>
+    </article>
+  </dialog>
+
+  <script>
+    window.SKILLS_DATA_URL = 'data-master.json';
+    window.SKILLS_STORAGE_SUFFIX = 'master-v1';
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

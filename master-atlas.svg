@@ -1,0 +1,1129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1720 5542" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+<defs><filter id="sh" x="-3%" y="-3%" width="106%" height="112%"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#000" flood-opacity="0.05"/></filter>
+<linearGradient id="rib" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0.000" stop-color="#16a34a"/>
+<stop offset="0.333" stop-color="#2563eb"/>
+<stop offset="0.667" stop-color="#7c3aed"/>
+<stop offset="1.000" stop-color="#d97706"/>
+</linearGradient></defs>
+<rect width="1720" height="5542" fill="#fafaf7"/>
+<text x="30" y="52" font-size="34" font-weight="800" fill="#1a1a1a" letter-spacing="-.5">Атлас West Coast Swing — все 219 навыков и фигур</text>
+<text x="30" y="80" font-size="15" fill="#6b7280">14 веток · каждый элемент в своей стадии зрелости (1→4). Ось — компетенции; паттерны — слой применения. WIY v1.0</text>
+<rect x="30" y="98" width="1660" height="30" rx="8" fill="url(#rib)" opacity="0.92"/>
+<text x="238" y="118" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">① Новичок</text>
+<text x="652" y="118" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">② Уверенный</text>
+<text x="1068" y="118" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">③ Компетентный</text>
+<text x="1482" y="118" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">④ Мастер и наставник</text>
+<rect x="30" y="150" width="1660" height="472" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="150" width="1660" height="46" rx="12" fill="#ecfeff"/>
+<rect x="30" y="184" width="1660" height="12" fill="#ecfeff"/>
+<rect x="30" y="150" width="7" height="472" rx="3" fill="#0e7490"/>
+<text x="52" y="180" font-size="24">🔗</text>
+<text x="88" y="175" font-size="18" font-weight="800" fill="#1a1a1a">Связь и фрейм</text>
+<text x="88" y="190" font-size="11.5" fill="#6b7280">Connection &amp; Frame</text>
+<text x="1674" y="172" font-size="20" font-weight="800" fill="#0e7490" text-anchor="end">21</text>
+<text x="1674" y="188" font-size="9.5" fill="#0e7490" text-anchor="end" letter-spacing="1">НАВЫК</text>
+<text x="40" y="212" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 5</text>
+<rect x="40" y="222" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="222" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="237" font-size="12" font-weight="700" fill="#1a1a1a">Anchor (anchor step) — the footwork</text>
+<text x="51" y="250" font-size="9.5" fill="#6b7280">Якорь (анкор-степ) — механика шага</text>
+<rect x="40" y="260" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="260" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="275" font-size="12" font-weight="700" fill="#1a1a1a">Connection</text>
+<text x="51" y="288" font-size="9.5" fill="#6b7280">Контакт / соединение</text>
+<rect x="40" y="298" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="298" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="313" font-size="12" font-weight="700" fill="#1a1a1a">Frame</text>
+<text x="51" y="326" font-size="9.5" fill="#6b7280">Рамка (фрейм)</text>
+<rect x="40" y="336" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="336" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="351" font-size="12" font-weight="700" fill="#1a1a1a">Hand placement / handholds</text>
+<text x="51" y="364" font-size="9.5" fill="#6b7280">Положение рук и хваты</text>
+<rect x="40" y="374" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="374" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="389" font-size="12" font-weight="700" fill="#1a1a1a">Relaxed (non-tense) arm</text>
+<text x="51" y="402" font-size="9.5" fill="#6b7280">Расслабленная (не зажатая) рука</text>
+<text x="454" y="212" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 8</text>
+<rect x="454" y="222" width="400" height="51" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="222" width="4" height="51" rx="2" fill="#2563eb"/>
+<text x="464" y="237" font-size="12" font-weight="700" fill="#1a1a1a">Anchor as body position (reframe, not denial of</text>
+<text x="464" y="250" font-size="12" font-weight="700" fill="#1a1a1a">mechanics)</text>
+<text x="464" y="263" font-size="9.5" fill="#6b7280">Якорь как положение тела (reframe, не отрицание механики)</text>
+<rect x="454" y="276" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="276" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="291" font-size="12" font-weight="700" fill="#1a1a1a">Closed position</text>
+<text x="464" y="304" font-size="9.5" fill="#6b7280">Закрытая позиция</text>
+<rect x="454" y="314" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="314" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="329" font-size="12" font-weight="700" fill="#1a1a1a">Compression</text>
+<text x="464" y="342" font-size="9.5" fill="#6b7280">Компрессия / сжатие</text>
+<rect x="454" y="352" width="400" height="51" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="352" width="4" height="51" rx="2" fill="#2563eb"/>
+<text x="464" y="367" font-size="12" font-weight="700" fill="#1a1a1a">Counterbalance / countering (leverage through</text>
+<text x="464" y="380" font-size="12" font-weight="700" fill="#1a1a1a">counterweight)</text>
+<text x="464" y="393" font-size="9.5" fill="#6b7280">Контрбаланс / countering (леверидж через противовес)</text>
+<rect x="454" y="406" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="406" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="421" font-size="12" font-weight="700" fill="#1a1a1a">Elasticity / tension-compression</text>
+<text x="464" y="434" font-size="9.5" fill="#6b7280">Эластичность: растяжение-сжатие</text>
+<rect x="454" y="444" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="444" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="459" font-size="12" font-weight="700" fill="#1a1a1a">Extension</text>
+<text x="464" y="472" font-size="9.5" fill="#6b7280">Экстеншн (вытяжение)</text>
+<rect x="454" y="482" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="482" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="497" font-size="12" font-weight="700" fill="#1a1a1a">Gradual weight transfer</text>
+<text x="464" y="510" font-size="9.5" fill="#6b7280">Постепенный перенос веса</text>
+<rect x="454" y="520" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="520" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="535" font-size="12" font-weight="700" fill="#1a1a1a">Leverage</text>
+<text x="464" y="548" font-size="9.5" fill="#6b7280">Леверидж / рычаг</text>
+<text x="867" y="212" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 7</text>
+<rect x="867" y="222" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="222" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="237" font-size="12" font-weight="700" fill="#1a1a1a">Anchor as play — variations, hijacks &amp; musical timing</text>
+<text x="878" y="250" font-size="9.5" fill="#6b7280">Якорь как игра — вариации, хайджеки и музыкальный тайминг</text>
+<rect x="867" y="260" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="260" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="275" font-size="12" font-weight="700" fill="#1a1a1a">Audition-level advanced connection</text>
+<text x="878" y="288" font-size="9.5" fill="#6b7280">Продвинутая связь экзаменационного уровня</text>
+<rect x="867" y="298" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="298" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="313" font-size="12" font-weight="700" fill="#1a1a1a">Body-not-brain signal processing</text>
+<text x="878" y="326" font-size="9.5" fill="#6b7280">Обработка сигналов телом, а не мозгом</text>
+<rect x="867" y="336" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="336" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="351" font-size="12" font-weight="700" fill="#1a1a1a">Connection without hands / body-lead</text>
+<text x="878" y="364" font-size="9.5" fill="#6b7280">Связь без рук / ведение телом</text>
+<rect x="867" y="374" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="374" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="389" font-size="12" font-weight="700" fill="#1a1a1a">Energy matching &amp; redirection</text>
+<text x="878" y="402" font-size="9.5" fill="#6b7280">Мэтчинг и редирект энергии</text>
+<rect x="867" y="412" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="412" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="427" font-size="12" font-weight="700" fill="#1a1a1a">Follower hijacks (follower-initiated stretch/connection)</text>
+<text x="878" y="440" font-size="9.5" fill="#6b7280">Хайджеки фоллоу (связь, инициированная фоллоу)</text>
+<text x="1258" y="425" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="867" y="450" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="450" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="465" font-size="12" font-weight="700" fill="#1a1a1a">Tone vs impulse leading/following</text>
+<text x="878" y="478" font-size="9.5" fill="#6b7280">Ведение/следование тоном против импульса</text>
+<text x="1280" y="212" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 1</text>
+<rect x="1280" y="222" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="222" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="237" font-size="12" font-weight="700" fill="#1a1a1a">100% commitment to partner comfort</text>
+<text x="1292" y="250" font-size="9.5" fill="#6b7280">Полный фокус на комфорте партнёра</text>
+<rect x="30" y="640" width="1660" height="305" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="640" width="1660" height="46" rx="12" fill="#ecfeff"/>
+<rect x="30" y="674" width="1660" height="12" fill="#ecfeff"/>
+<rect x="30" y="640" width="7" height="305" rx="3" fill="#0e7490"/>
+<text x="52" y="670" font-size="24">🧍</text>
+<text x="88" y="665" font-size="18" font-weight="800" fill="#1a1a1a">Движение тела (соло-механика)</text>
+<text x="88" y="680" font-size="11.5" fill="#6b7280">Body Movement (solo mechanics)</text>
+<text x="1674" y="662" font-size="20" font-weight="800" fill="#0e7490" text-anchor="end">14</text>
+<text x="1674" y="678" font-size="9.5" fill="#0e7490" text-anchor="end" letter-spacing="1">НАВЫК</text>
+<text x="40" y="702" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 5</text>
+<rect x="40" y="712" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="712" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="727" font-size="12" font-weight="700" fill="#1a1a1a">Balance / Center Point of Balance (CPB)</text>
+<text x="51" y="740" font-size="9.5" fill="#6b7280">Баланс / центр баланса (CPB)</text>
+<rect x="40" y="750" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="750" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="765" font-size="12" font-weight="700" fill="#1a1a1a">Footwork (triple step heavy-light-light)</text>
+<text x="51" y="778" font-size="9.5" fill="#6b7280">Работа ног (трипл-степ тяжёлый-лёгкий-лёгкий)</text>
+<rect x="40" y="788" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="788" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="803" font-size="12" font-weight="700" fill="#1a1a1a">Gradual weight transfer (canonical home)</text>
+<text x="51" y="816" font-size="9.5" fill="#6b7280">Постепенный перенос веса (canonical home)</text>
+<rect x="40" y="826" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="826" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="841" font-size="12" font-weight="700" fill="#1a1a1a">Pitch &amp; posture</text>
+<text x="51" y="854" font-size="9.5" fill="#6b7280">Питч и осанка (наклон и постура)</text>
+<rect x="40" y="864" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="864" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="879" font-size="12" font-weight="700" fill="#1a1a1a">Timing</text>
+<text x="51" y="892" font-size="9.5" fill="#6b7280">Тайминг (счёт шагов)</text>
+<text x="454" y="702" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 5</text>
+<rect x="454" y="712" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="712" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="727" font-size="12" font-weight="700" fill="#1a1a1a">Anchor footwork</text>
+<text x="464" y="740" font-size="9.5" fill="#6b7280">Анкор как работа ног (якорный шаг)</text>
+<rect x="454" y="750" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="750" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="765" font-size="12" font-weight="700" fill="#1a1a1a">Contrabody movement (CBM)</text>
+<text x="464" y="778" font-size="9.5" fill="#6b7280">Контрабоди (противоход корпуса)</text>
+<rect x="454" y="788" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="788" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="803" font-size="12" font-weight="700" fill="#1a1a1a">Leader self-styling &amp; footwork variations</text>
+<text x="464" y="816" font-size="9.5" fill="#6b7280">Соло-стайлинг лидера и вариации работы ног</text>
+<text x="845" y="801" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="454" y="826" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="826" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="841" font-size="12" font-weight="700" fill="#1a1a1a">Pulse</text>
+<text x="464" y="854" font-size="9.5" fill="#6b7280">Пульс (пружинистость)</text>
+<rect x="454" y="864" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="864" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="879" font-size="12" font-weight="700" fill="#1a1a1a">Turning</text>
+<text x="464" y="892" font-size="9.5" fill="#6b7280">Повороты / турны</text>
+<text x="867" y="702" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 3</text>
+<rect x="867" y="712" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="712" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="727" font-size="12" font-weight="700" fill="#1a1a1a">Arm styling</text>
+<text x="878" y="740" font-size="9.5" fill="#6b7280">Стайлинг рук</text>
+<rect x="867" y="750" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="750" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="765" font-size="12" font-weight="700" fill="#1a1a1a">Body flight / squish-and-drive</text>
+<text x="878" y="778" font-size="9.5" fill="#6b7280">Body flight / squish-and-drive (полёт тела)</text>
+<rect x="867" y="788" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="788" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="803" font-size="12" font-weight="700" fill="#1a1a1a">Quality of movement (QoM)</text>
+<text x="878" y="816" font-size="9.5" fill="#6b7280">Качество движения (QoM)</text>
+<text x="1280" y="702" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 1</text>
+<rect x="1280" y="712" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="712" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="727" font-size="12" font-weight="700" fill="#1a1a1a">Personal movement mastery</text>
+<text x="1292" y="740" font-size="9.5" fill="#6b7280">Личное мастерство движения</text>
+<rect x="30" y="963" width="1660" height="350" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="963" width="1660" height="46" rx="12" fill="#ecfeff"/>
+<rect x="30" y="997" width="1660" height="12" fill="#ecfeff"/>
+<rect x="30" y="963" width="7" height="350" rx="3" fill="#0e7490"/>
+<text x="52" y="993" font-size="24">🥁</text>
+<text x="88" y="988" font-size="18" font-weight="800" fill="#1a1a1a">Ритм и тайминг</text>
+<text x="88" y="1003" font-size="11.5" fill="#6b7280">Rhythm &amp; Timing</text>
+<text x="1674" y="985" font-size="20" font-weight="800" fill="#0e7490" text-anchor="end">14</text>
+<text x="1674" y="1001" font-size="9.5" fill="#0e7490" text-anchor="end" letter-spacing="1">НАВЫК</text>
+<text x="40" y="1025" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 3</text>
+<rect x="40" y="1035" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="1035" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="1050" font-size="12" font-weight="700" fill="#1a1a1a">Beat timing / count structure (6 &amp; 8 count)</text>
+<text x="51" y="1063" font-size="9.5" fill="#6b7280">Тайминг и счётная структура (6 и 8 счётов)</text>
+<rect x="40" y="1073" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="1073" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="1088" font-size="12" font-weight="700" fill="#1a1a1a">Gradual weight transfer through the beat</text>
+<text x="51" y="1101" font-size="9.5" fill="#6b7280">Постепенный перенос веса сквозь долю</text>
+<rect x="40" y="1111" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="1111" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="1126" font-size="12" font-weight="700" fill="#1a1a1a">Triple-step rhythm: walk-walk-triple-step (6 &amp; 8 count)</text>
+<text x="51" y="1139" font-size="9.5" fill="#6b7280">Базовый ритм трипл-степа: walk-walk-triple-step (6 и 8 сч…</text>
+<text x="454" y="1025" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 6</text>
+<rect x="454" y="1035" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1035" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1050" font-size="12" font-weight="700" fill="#1a1a1a">Dancing without counting (automaticity)</text>
+<text x="464" y="1063" font-size="9.5" fill="#6b7280">Танец без счёта (автоматизм)</text>
+<rect x="454" y="1073" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1073" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1088" font-size="12" font-weight="700" fill="#1a1a1a">Phrasing awareness (4x8 musical phrase)</text>
+<text x="464" y="1101" font-size="9.5" fill="#6b7280">Чувство фразировки (4×8)</text>
+<rect x="454" y="1111" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1111" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1126" font-size="12" font-weight="700" fill="#1a1a1a">Pulse / pulsing</text>
+<text x="464" y="1139" font-size="9.5" fill="#6b7280">Пульс / пульсация</text>
+<rect x="454" y="1149" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1149" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1164" font-size="12" font-weight="700" fill="#1a1a1a">Rhythm variations (altering the default triple)</text>
+<text x="464" y="1177" font-size="9.5" fill="#6b7280">Ритмические вариации (изменение дефолтного трипла)</text>
+<rect x="454" y="1187" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1187" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1202" font-size="12" font-weight="700" fill="#1a1a1a">Rolling count</text>
+<text x="464" y="1215" font-size="9.5" fill="#6b7280">Роллинг-каунт (плавающий счёт)</text>
+<rect x="454" y="1225" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1225" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1240" font-size="12" font-weight="700" fill="#1a1a1a">Timing absorption &amp; release (land on downbeat)</text>
+<text x="464" y="1253" font-size="9.5" fill="#6b7280">Поглощение и сброс связи (попасть на сильную долю)</text>
+<text x="867" y="1025" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 3</text>
+<rect x="867" y="1035" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1035" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1050" font-size="12" font-weight="700" fill="#1a1a1a">Downbeat / upbeat &amp; off-beat movement</text>
+<text x="878" y="1063" font-size="9.5" fill="#6b7280">Сильная/слабая доля и движение вне доли</text>
+<rect x="867" y="1073" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1073" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1088" font-size="12" font-weight="700" fill="#1a1a1a">Forward-planning rhythm to hit breaks</text>
+<text x="878" y="1101" font-size="9.5" fill="#6b7280">Предвидение ритма для хитов на брейках</text>
+<rect x="867" y="1111" width="400" height="51" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1111" width="4" height="51" rx="2" fill="#7c3aed"/>
+<text x="878" y="1126" font-size="12" font-weight="700" fill="#1a1a1a">Syncopated anchor variations (kick-ball-change,</text>
+<text x="878" y="1139" font-size="12" font-weight="700" fill="#1a1a1a">&amp;-counts)</text>
+<text x="878" y="1152" font-size="9.5" fill="#6b7280">Синкопированные вариации анкора (kick-ball-change, &amp;-счет…</text>
+<text x="1280" y="1025" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 2</text>
+<rect x="1280" y="1035" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="1035" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="1050" font-size="12" font-weight="700" fill="#1a1a1a">Delayed double / delayed "1"</text>
+<text x="1292" y="1063" font-size="9.5" fill="#6b7280">Delayed double / задержанная «1»</text>
+<rect x="1280" y="1073" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="1073" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="1088" font-size="12" font-weight="700" fill="#1a1a1a">Effortless rhythmic improvisation (no attention cost)</text>
+<text x="1292" y="1101" font-size="9.5" fill="#6b7280">Ритмическая импровизация без затрат внимания</text>
+<rect x="30" y="1331" width="1660" height="440" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="1331" width="1660" height="46" rx="12" fill="#ecfeff"/>
+<rect x="30" y="1365" width="1660" height="12" fill="#ecfeff"/>
+<rect x="30" y="1331" width="7" height="440" rx="3" fill="#0e7490"/>
+<text x="52" y="1361" font-size="24">🧭</text>
+<text x="88" y="1356" font-size="18" font-weight="800" fill="#1a1a1a">Ведение (роль лидера)</text>
+<text x="88" y="1371" font-size="11.5" fill="#6b7280">Leading (leader role)</text>
+<text x="1674" y="1353" font-size="20" font-weight="800" fill="#0e7490" text-anchor="end">19</text>
+<text x="1674" y="1369" font-size="9.5" fill="#0e7490" text-anchor="end" letter-spacing="1">НАВЫК</text>
+<text x="40" y="1393" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 2</text>
+<rect x="40" y="1403" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="1403" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="1418" font-size="12" font-weight="700" fill="#1a1a1a">Clear leading of basic patterns</text>
+<text x="51" y="1431" font-size="9.5" fill="#6b7280">Чёткое ведение базовых паттернов</text>
+<text x="432" y="1416" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="40" y="1441" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="1441" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="1456" font-size="12" font-weight="700" fill="#1a1a1a">Frame as the lead transmission channel</text>
+<text x="51" y="1469" font-size="9.5" fill="#6b7280">Фрейм как канал передачи ведения</text>
+<text x="432" y="1454" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<text x="454" y="1393" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 5</text>
+<rect x="454" y="1403" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1403" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1418" font-size="12" font-weight="700" fill="#1a1a1a">Leader self-styling and footwork variations</text>
+<text x="464" y="1431" font-size="9.5" fill="#6b7280">Стайлинг лидера и вариации футворка в базе</text>
+<text x="845" y="1416" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="454" y="1441" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1441" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1456" font-size="12" font-weight="700" fill="#1a1a1a">Leading from the CPB (hip/shoulder back on 2)</text>
+<text x="464" y="1469" font-size="9.5" fill="#6b7280">Лид от CPB (бедро/плечо назад на счёт 2)</text>
+<text x="845" y="1454" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="454" y="1479" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1479" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1494" font-size="12" font-weight="700" fill="#1a1a1a">Preps and turn entries</text>
+<text x="464" y="1507" font-size="9.5" fill="#6b7280">Preps (подготовка поворотов) и вход в повороты</text>
+<text x="845" y="1492" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="454" y="1517" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1517" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1532" font-size="12" font-weight="700" fill="#1a1a1a">Send and Catch / Pass vs Push</text>
+<text x="464" y="1545" font-size="9.5" fill="#6b7280">Send and Catch / Pass vs Push (отправка-ловля)</text>
+<text x="845" y="1530" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="454" y="1555" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1555" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1570" font-size="12" font-weight="700" fill="#1a1a1a">Traffic and hand-change technique</text>
+<text x="464" y="1583" font-size="9.5" fill="#6b7280">Трафик и техника смены руки</text>
+<text x="845" y="1568" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<text x="867" y="1393" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 8</text>
+<rect x="867" y="1403" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1403" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1418" font-size="12" font-weight="700" fill="#1a1a1a">Adaptable lead (not vague)</text>
+<text x="878" y="1431" font-size="9.5" fill="#6b7280">Адаптивное ведение (≠ размытое)</text>
+<text x="1258" y="1416" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="867" y="1441" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1441" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1456" font-size="12" font-weight="700" fill="#1a1a1a">Advanced side redirect (one-beat, mid-pattern)</text>
+<text x="878" y="1469" font-size="9.5" fill="#6b7280">Продвинутый side redirect (одношаговый, посреди паттерна)</text>
+<text x="1258" y="1454" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="867" y="1479" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1479" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1494" font-size="12" font-weight="700" fill="#1a1a1a">Allowing and handling follower hijacks</text>
+<text x="878" y="1507" font-size="9.5" fill="#6b7280">Допуск и обработка hijacks фолловера</text>
+<text x="1258" y="1492" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="867" y="1517" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1517" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1532" font-size="12" font-weight="700" fill="#1a1a1a">Connection without hands / body-lead</text>
+<text x="878" y="1545" font-size="9.5" fill="#6b7280">Связь без рук / ведение телом</text>
+<text x="1258" y="1530" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="867" y="1555" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1555" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1570" font-size="12" font-weight="700" fill="#1a1a1a">Energy matching and redirection (lead)</text>
+<text x="878" y="1583" font-size="9.5" fill="#6b7280">Подстройка и перенаправление энергии (лид)</text>
+<text x="1258" y="1568" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="867" y="1593" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1593" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1608" font-size="12" font-weight="700" fill="#1a1a1a">Learning to follow as a leader</text>
+<text x="878" y="1621" font-size="9.5" fill="#6b7280">Лидеру учиться следовать (кросс-роль)</text>
+<text x="1258" y="1606" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="867" y="1631" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1631" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1646" font-size="12" font-weight="700" fill="#1a1a1a">Musical play and forward-planning (lead)</text>
+<text x="878" y="1659" font-size="9.5" fill="#6b7280">Музыкальная игра и forward-planning лидера</text>
+<text x="1258" y="1644" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="867" y="1669" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1669" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1684" font-size="12" font-weight="700" fill="#1a1a1a">One-beat lead</text>
+<text x="878" y="1697" font-size="9.5" fill="#6b7280">One-beat lead (одношаговое ведение)</text>
+<text x="1258" y="1682" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<text x="1280" y="1393" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 4</text>
+<rect x="1280" y="1403" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="1403" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="1418" font-size="12" font-weight="700" fill="#1a1a1a">Lead that makes any follower successful</text>
+<text x="1292" y="1431" font-size="9.5" fill="#6b7280">Ведение, делающее успешным ЛЮБОГО фолловера</text>
+<text x="1672" y="1416" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="1280" y="1441" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="1441" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="1456" font-size="12" font-weight="700" fill="#1a1a1a">Leader-active footwork and vocabulary</text>
+<text x="1292" y="1469" font-size="9.5" fill="#6b7280">Leader-active footwork и вокабуляр (roll-in, leader's rid…</text>
+<text x="1672" y="1454" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="1280" y="1479" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="1479" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="1494" font-size="12" font-weight="700" fill="#1a1a1a">Teaching the lead role / pass it on</text>
+<text x="1292" y="1507" font-size="9.5" fill="#6b7280">Преподавание роли лидера / передать дальше</text>
+<text x="1672" y="1492" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="1280" y="1517" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="1517" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="1532" font-size="12" font-weight="700" fill="#1a1a1a">Transcending rules as a leader / showmanship</text>
+<text x="1292" y="1545" font-size="9.5" fill="#6b7280">Нарушение правил и шоуменство лидера</text>
+<text x="1672" y="1530" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="30" y="1789" width="1660" height="305" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="1789" width="1660" height="46" rx="12" fill="#ecfeff"/>
+<rect x="30" y="1823" width="1660" height="12" fill="#ecfeff"/>
+<rect x="30" y="1789" width="7" height="305" rx="3" fill="#0e7490"/>
+<text x="52" y="1819" font-size="24">🌀</text>
+<text x="88" y="1814" font-size="18" font-weight="800" fill="#1a1a1a">Следование</text>
+<text x="88" y="1829" font-size="11.5" fill="#6b7280">Following</text>
+<text x="1674" y="1811" font-size="20" font-weight="800" fill="#0e7490" text-anchor="end">17</text>
+<text x="1674" y="1827" font-size="9.5" fill="#0e7490" text-anchor="end" letter-spacing="1">НАВЫК</text>
+<text x="40" y="1851" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 4</text>
+<rect x="40" y="1861" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="1861" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="1876" font-size="12" font-weight="700" fill="#1a1a1a">Anchor settle (follower's anchor)</text>
+<text x="51" y="1889" font-size="9.5" fill="#6b7280">Якорь фолловера (anchor settle)</text>
+<text x="432" y="1874" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="40" y="1899" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="1899" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="1914" font-size="12" font-weight="700" fill="#1a1a1a">Follower as Primary Mover</text>
+<text x="51" y="1927" font-size="9.5" fill="#6b7280">Фолловер как Primary Mover (главный носитель перемещения)</text>
+<text x="432" y="1912" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="40" y="1937" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="1937" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="1952" font-size="12" font-weight="700" fill="#1a1a1a">Follower frame &amp; receiving connection</text>
+<text x="51" y="1965" font-size="9.5" fill="#6b7280">Фрейм фолловера и приём связи</text>
+<text x="432" y="1950" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="40" y="1975" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="1975" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="1990" font-size="12" font-weight="700" fill="#1a1a1a">Start forward on 1-2 in travelling patterns</text>
+<text x="51" y="2003" font-size="9.5" fill="#6b7280">Старт вперёд на «1-2» в проходных паттернах</text>
+<text x="432" y="1988" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<text x="454" y="1851" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 5</text>
+<rect x="454" y="1861" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1861" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1876" font-size="12" font-weight="700" fill="#1a1a1a">Dancing basics without counting</text>
+<text x="464" y="1889" font-size="9.5" fill="#6b7280">Танец базы без счёта в голове</text>
+<text x="845" y="1874" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="454" y="1899" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1899" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1914" font-size="12" font-weight="700" fill="#1a1a1a">Drive back on 4, swivel on '&amp;a'</text>
+<text x="464" y="1927" font-size="9.5" fill="#6b7280">Драйв назад на счёт «4», свивл на «&amp;a»</text>
+<text x="845" y="1912" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="454" y="1937" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1937" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1952" font-size="12" font-weight="700" fill="#1a1a1a">Free spin autonomy</text>
+<text x="464" y="1965" font-size="9.5" fill="#6b7280">Автономный free spin</text>
+<text x="845" y="1950" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="454" y="1975" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="1975" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="1990" font-size="12" font-weight="700" fill="#1a1a1a">Reading stretch &amp; compression</text>
+<text x="464" y="2003" font-size="9.5" fill="#6b7280">Чтение стретча и компрессии</text>
+<text x="845" y="1988" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="454" y="2013" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="2013" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="2028" font-size="12" font-weight="700" fill="#1a1a1a">Self-styling within basics</text>
+<text x="464" y="2041" font-size="9.5" fill="#6b7280">Self-styling внутри базы</text>
+<text x="845" y="2026" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<text x="867" y="1851" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 5</text>
+<rect x="867" y="1861" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1861" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1876" font-size="12" font-weight="700" fill="#1a1a1a">Body flight / squish-and-drive (momentum out of turn)</text>
+<text x="878" y="1889" font-size="9.5" fill="#6b7280">Body flight / squish-and-drive (момент после поворота)</text>
+<text x="1258" y="1874" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="867" y="1899" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1899" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1914" font-size="12" font-weight="700" fill="#1a1a1a">Double spins autonomously</text>
+<text x="878" y="1927" font-size="9.5" fill="#6b7280">Двойные повороты автономно</text>
+<text x="1258" y="1912" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="867" y="1937" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1937" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1952" font-size="12" font-weight="700" fill="#1a1a1a">Improvising solo &amp; together</text>
+<text x="878" y="1965" font-size="9.5" fill="#6b7280">Импровизация соло и в паре</text>
+<text x="1258" y="1950" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="867" y="1975" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="1975" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="1990" font-size="12" font-weight="700" fill="#1a1a1a">Learning to lead as a follower</text>
+<text x="878" y="2003" font-size="9.5" fill="#6b7280">Учиться вести, будучи фолловером</text>
+<text x="1258" y="1988" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="867" y="2013" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2013" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2028" font-size="12" font-weight="700" fill="#1a1a1a">Musical play &amp; forward-planning</text>
+<text x="878" y="2041" font-size="9.5" fill="#6b7280">Музыкальная игра и forward-planning</text>
+<text x="1258" y="2026" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<text x="1280" y="1851" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 3</text>
+<rect x="1280" y="1861" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="1861" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="1876" font-size="12" font-weight="700" fill="#1a1a1a">Elevate any partner</text>
+<text x="1292" y="1889" font-size="9.5" fill="#6b7280">Поднять любого партнёра до своего уровня</text>
+<text x="1672" y="1874" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="1280" y="1899" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="1899" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="1914" font-size="12" font-weight="700" fill="#1a1a1a">Teaching the follow role</text>
+<text x="1292" y="1927" font-size="9.5" fill="#6b7280">Передача роли фолловера дальше</text>
+<text x="1672" y="1912" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="1280" y="1937" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="1937" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="1952" font-size="12" font-weight="700" fill="#1a1a1a">Transcending the rules (showmanship)</text>
+<text x="1292" y="1965" font-size="9.5" fill="#6b7280">Выход за правила (шоуменство)</text>
+<text x="1672" y="1950" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="30" y="2112" width="1660" height="411" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="2112" width="1660" height="46" rx="12" fill="#ecfeff"/>
+<rect x="30" y="2146" width="1660" height="12" fill="#ecfeff"/>
+<rect x="30" y="2112" width="7" height="411" rx="3" fill="#0e7490"/>
+<text x="52" y="2142" font-size="24">🎵</text>
+<text x="88" y="2137" font-size="18" font-weight="800" fill="#1a1a1a">Музыкальность</text>
+<text x="88" y="2152" font-size="11.5" fill="#6b7280">Musicality</text>
+<text x="1674" y="2134" font-size="20" font-weight="800" fill="#0e7490" text-anchor="end">16</text>
+<text x="1674" y="2150" font-size="9.5" fill="#0e7490" text-anchor="end" letter-spacing="1">НАВЫК</text>
+<text x="40" y="2174" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 2</text>
+<rect x="40" y="2184" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="2184" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="2199" font-size="12" font-weight="700" fill="#1a1a1a">Hearing the metronome (downbeat / upbeat)</text>
+<text x="51" y="2212" font-size="9.5" fill="#6b7280">Слышать метроном (сильная / слабая доля)</text>
+<rect x="40" y="2222" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="2222" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="2237" font-size="12" font-weight="700" fill="#1a1a1a">Timing — stepping on the beat</text>
+<text x="51" y="2250" font-size="9.5" fill="#6b7280">Тайминг — попадание в долю</text>
+<text x="454" y="2174" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 3</text>
+<rect x="454" y="2184" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="2184" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="2199" font-size="12" font-weight="700" fill="#1a1a1a">Phrasing awareness (4×8 musical phrase)</text>
+<text x="464" y="2212" font-size="9.5" fill="#6b7280">Чувство фразировки (4×8)</text>
+<rect x="454" y="2222" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="2222" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="2237" font-size="12" font-weight="700" fill="#1a1a1a">Pulse / groove with the music</text>
+<text x="464" y="2250" font-size="9.5" fill="#6b7280">Пульс / грув под музыку</text>
+<rect x="454" y="2260" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="2260" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="2275" font-size="12" font-weight="700" fill="#1a1a1a">Train ear and body separately (ear-first)</text>
+<text x="464" y="2288" font-size="9.5" fill="#6b7280">Тренировать слух и тело раздельно (ear-first)</text>
+<text x="867" y="2174" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 7</text>
+<rect x="867" y="2184" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2184" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2199" font-size="12" font-weight="700" fill="#1a1a1a">Dynamics: accents, ghost-beats &amp; holds</text>
+<text x="878" y="2212" font-size="9.5" fill="#6b7280">Динамика: акценты, ghost-beats и холды</text>
+<rect x="867" y="2222" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2222" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2237" font-size="12" font-weight="700" fill="#1a1a1a">Forward-planning to hit breaks / style on lyrics</text>
+<text x="878" y="2250" font-size="9.5" fill="#6b7280">Предвидение: хиты на брейках, стиль на словах</text>
+<rect x="867" y="2260" width="400" height="51" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2260" width="4" height="51" rx="2" fill="#7c3aed"/>
+<text x="878" y="2275" font-size="12" font-weight="700" fill="#1a1a1a">Matching instruments &amp; texture (following the melody /</text>
+<text x="878" y="2288" font-size="12" font-weight="700" fill="#1a1a1a">percussion)</text>
+<text x="878" y="2301" font-size="9.5" fill="#6b7280">Следование за инструментами и текстурой (мелодия / перкус…</text>
+<rect x="867" y="2314" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2314" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2329" font-size="12" font-weight="700" fill="#1a1a1a">Musicality matrix (playing across genres)</text>
+<text x="878" y="2342" font-size="9.5" fill="#6b7280">Musicality matrix (игра с любым жанром)</text>
+<rect x="867" y="2352" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2352" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2367" font-size="12" font-weight="700" fill="#1a1a1a">Rhythm variations &amp; syncopation to music</text>
+<text x="878" y="2380" font-size="9.5" fill="#6b7280">Ритмические вариации и синкопы под музыку</text>
+<rect x="867" y="2390" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2390" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2405" font-size="12" font-weight="700" fill="#1a1a1a">Rolling count / off-beat movement</text>
+<text x="878" y="2418" font-size="9.5" fill="#6b7280">Роллинг-каунт / движение вне доли</text>
+<rect x="867" y="2428" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2428" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2443" font-size="12" font-weight="700" fill="#1a1a1a">Song mapping (proactive listening)</text>
+<text x="878" y="2456" font-size="9.5" fill="#6b7280">Картирование песни (проактивное слушание)</text>
+<text x="1280" y="2174" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 4</text>
+<rect x="1280" y="2184" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="2184" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="2199" font-size="12" font-weight="700" fill="#1a1a1a">Breaking musical rules while keeping flow</text>
+<text x="1292" y="2212" font-size="9.5" fill="#6b7280">Нарушать музыкальные правила, сохраняя поток</text>
+<rect x="1280" y="2222" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="2222" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="2237" font-size="12" font-weight="700" fill="#1a1a1a">Musical conversation with partner (call-and-response)</text>
+<text x="1292" y="2250" font-size="9.5" fill="#6b7280">Музыкальный диалог с партнёром (call-and-response)</text>
+<rect x="1280" y="2260" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="2260" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="2275" font-size="12" font-weight="700" fill="#1a1a1a">Musicality as a judging criterion (competition ceiling)</text>
+<text x="1292" y="2288" font-size="9.5" fill="#6b7280">Музыкальность как судейский критерий (конкурсный потолок)</text>
+<rect x="1280" y="2298" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="2298" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="2313" font-size="12" font-weight="700" fill="#1a1a1a">Presence of mind (free attention)</text>
+<text x="1292" y="2326" font-size="9.5" fill="#6b7280">Presence of mind (свободное внимание)</text>
+<rect x="30" y="2541" width="1660" height="366" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="2541" width="1660" height="46" rx="12" fill="#ecfeff"/>
+<rect x="30" y="2575" width="1660" height="12" fill="#ecfeff"/>
+<rect x="30" y="2541" width="7" height="366" rx="3" fill="#0e7490"/>
+<text x="52" y="2571" font-size="24">🎲</text>
+<text x="88" y="2566" font-size="18" font-weight="800" fill="#1a1a1a">Импровизация и игра</text>
+<text x="88" y="2581" font-size="11.5" fill="#6b7280">Improvisation &amp; Play</text>
+<text x="1674" y="2563" font-size="20" font-weight="800" fill="#0e7490" text-anchor="end">15</text>
+<text x="1674" y="2579" font-size="9.5" fill="#0e7490" text-anchor="end" letter-spacing="1">НАВЫК</text>
+<text x="40" y="2603" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 2</text>
+<rect x="40" y="2613" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="2613" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="2628" font-size="12" font-weight="700" fill="#1a1a1a">Freed attention (automaticity of basics)</text>
+<text x="51" y="2641" font-size="9.5" fill="#6b7280">Освобождённое внимание (автоматизм базы)</text>
+<rect x="40" y="2651" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="2651" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="2666" font-size="12" font-weight="700" fill="#1a1a1a">Playful social mindset</text>
+<text x="51" y="2679" font-size="9.5" fill="#6b7280">Игровой настрой на социале</text>
+<text x="454" y="2603" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 3</text>
+<rect x="454" y="2613" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="2613" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="2628" font-size="12" font-weight="700" fill="#1a1a1a">Applying amalgamations on the fly</text>
+<text x="464" y="2641" font-size="9.5" fill="#6b7280">Применение амальгамаций на лету</text>
+<rect x="454" y="2651" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="2651" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="2666" font-size="12" font-weight="700" fill="#1a1a1a">Improvising within safe frame</text>
+<text x="464" y="2679" font-size="9.5" fill="#6b7280">Импровизация в безопасных рамках</text>
+<rect x="454" y="2689" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="2689" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="2704" font-size="12" font-weight="700" fill="#1a1a1a">Pattern variations &amp; combinations</text>
+<text x="464" y="2717" font-size="9.5" fill="#6b7280">Вариации и комбинации паттернов</text>
+<text x="867" y="2603" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 6</text>
+<rect x="867" y="2613" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2613" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2628" font-size="12" font-weight="700" fill="#1a1a1a">Contrast &amp; variety (fast/slow, big/small)</text>
+<text x="878" y="2641" font-size="9.5" fill="#6b7280">Контраст и разнообразие (быстро/медленно, большое/малое)</text>
+<rect x="867" y="2651" width="400" height="51" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2651" width="4" height="51" rx="2" fill="#7c3aed"/>
+<text x="878" y="2666" font-size="12" font-weight="700" fill="#1a1a1a">Dynamics &amp; texture-matching (accents, ghost-beats,</text>
+<text x="878" y="2679" font-size="12" font-weight="700" fill="#1a1a1a">instrument-following)</text>
+<text x="878" y="2692" font-size="9.5" fill="#6b7280">Динамика и текстура (акценты, ghost-beats, следование инс…</text>
+<rect x="867" y="2705" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2705" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2720" font-size="12" font-weight="700" fill="#1a1a1a">Multitasking + forward-planning to music</text>
+<text x="878" y="2733" font-size="9.5" fill="#6b7280">Многозадачность и предвидение под музыку</text>
+<rect x="867" y="2743" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2743" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2758" font-size="12" font-weight="700" fill="#1a1a1a">Reconfiguring patterns in real time</text>
+<text x="878" y="2771" font-size="9.5" fill="#6b7280">Перекройка паттернов в реальном времени</text>
+<rect x="867" y="2781" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2781" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2796" font-size="12" font-weight="700" fill="#1a1a1a">Rhythmic &amp; off-beat play</text>
+<text x="878" y="2809" font-size="9.5" fill="#6b7280">Игра с ритмом и счётом вне доли</text>
+<rect x="867" y="2819" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2819" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="2834" font-size="12" font-weight="700" fill="#1a1a1a">Solo &amp; together improvisation</text>
+<text x="878" y="2847" font-size="9.5" fill="#6b7280">Соло- и парная импровизация</text>
+<text x="1280" y="2603" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 4</text>
+<rect x="1280" y="2613" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="2613" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="2628" font-size="12" font-weight="700" fill="#1a1a1a">Breaking rules while maintaining flow</text>
+<text x="1292" y="2641" font-size="9.5" fill="#6b7280">Нарушение правил с сохранением потока</text>
+<rect x="1280" y="2651" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="2651" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="2666" font-size="12" font-weight="700" fill="#1a1a1a">Cross-genre fusion</text>
+<text x="1292" y="2679" font-size="9.5" fill="#6b7280">Кросс-жанровый фьюжн</text>
+<rect x="1280" y="2689" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="2689" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="2704" font-size="12" font-weight="700" fill="#1a1a1a">Musical conversation with partner (call-and-response)</text>
+<text x="1292" y="2717" font-size="9.5" fill="#6b7280">Музыкальный диалог с партнёром (call-and-response)</text>
+<rect x="1280" y="2727" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="2727" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="2742" font-size="12" font-weight="700" fill="#1a1a1a">Partner-comfort focus (Expert)</text>
+<text x="1292" y="2755" font-size="9.5" fill="#6b7280">Фокус на комфорте партнёра (Expert)</text>
+<rect x="30" y="2925" width="1660" height="305" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="2925" width="1660" height="46" rx="12" fill="#ecfeff"/>
+<rect x="30" y="2959" width="1660" height="12" fill="#ecfeff"/>
+<rect x="30" y="2925" width="7" height="305" rx="3" fill="#0e7490"/>
+<text x="52" y="2955" font-size="24">✨</text>
+<text x="88" y="2950" font-size="18" font-weight="800" fill="#1a1a1a">Стайлинг и выразительность</text>
+<text x="88" y="2965" font-size="11.5" fill="#6b7280">Styling &amp; Expression</text>
+<text x="1674" y="2947" font-size="20" font-weight="800" fill="#0e7490" text-anchor="end">12</text>
+<text x="1674" y="2963" font-size="9.5" fill="#0e7490" text-anchor="end" letter-spacing="1">НАВЫК</text>
+<text x="40" y="2987" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 1</text>
+<rect x="40" y="2997" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="2997" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="3012" font-size="12" font-weight="700" fill="#1a1a1a">Quality of movement (QoM)</text>
+<text x="51" y="3025" font-size="9.5" fill="#6b7280">Качество движения (QoM)</text>
+<text x="454" y="2987" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 3</text>
+<rect x="454" y="2997" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="2997" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="3012" font-size="12" font-weight="700" fill="#1a1a1a">Extension</text>
+<text x="464" y="3025" font-size="9.5" fill="#6b7280">Экстеншн (вытяжение)</text>
+<rect x="454" y="3035" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="3035" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="3050" font-size="12" font-weight="700" fill="#1a1a1a">Leader footwork styling / variations</text>
+<text x="464" y="3063" font-size="9.5" fill="#6b7280">Стайлинг footwork лида (вариации шагов)</text>
+<text x="845" y="3048" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<rect x="454" y="3073" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="3073" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="3088" font-size="12" font-weight="700" fill="#1a1a1a">Styling within the basics</text>
+<text x="464" y="3101" font-size="9.5" fill="#6b7280">Стайлинг внутри базы</text>
+<text x="867" y="2987" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 5</text>
+<rect x="867" y="2997" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="2997" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3012" font-size="12" font-weight="700" fill="#1a1a1a">Anchor variations as styling</text>
+<text x="878" y="3025" font-size="9.5" fill="#6b7280">Вариации якоря как стайлинг</text>
+<rect x="867" y="3035" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3035" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3050" font-size="12" font-weight="700" fill="#1a1a1a">Arm styling</text>
+<text x="878" y="3063" font-size="9.5" fill="#6b7280">Стайлинг рук</text>
+<rect x="867" y="3073" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3073" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3088" font-size="12" font-weight="700" fill="#1a1a1a">Contrast</text>
+<text x="878" y="3101" font-size="9.5" fill="#6b7280">Контраст</text>
+<rect x="867" y="3111" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3111" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3126" font-size="12" font-weight="700" fill="#1a1a1a">Intention (movement intent)</text>
+<text x="878" y="3139" font-size="9.5" fill="#6b7280">Намерение в движении</text>
+<rect x="867" y="3149" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3149" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3164" font-size="12" font-weight="700" fill="#1a1a1a">Styling and shaping</text>
+<text x="878" y="3177" font-size="9.5" fill="#6b7280">Стайлинг и шейпинг (формообразование)</text>
+<text x="1280" y="2987" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 3</text>
+<rect x="1280" y="2997" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="2997" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="3012" font-size="12" font-weight="700" fill="#1a1a1a">Expression without attention cost (presence of mind)</text>
+<text x="1292" y="3025" font-size="9.5" fill="#6b7280">Выразительность без затрат внимания (свободное внимание)</text>
+<rect x="1280" y="3035" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="3035" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="3050" font-size="12" font-weight="700" fill="#1a1a1a">Personal style (Technique → Intention → Repetition)</text>
+<text x="1292" y="3063" font-size="9.5" fill="#6b7280">Личный стиль (Техника → Намерение → Повторение)</text>
+<rect x="1280" y="3073" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="3073" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="3088" font-size="12" font-weight="700" fill="#1a1a1a">Showmanship</text>
+<text x="1292" y="3101" font-size="9.5" fill="#6b7280">Шоуменство / сценическая презентация</text>
+<rect x="30" y="3248" width="1660" height="260" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="3248" width="1660" height="46" rx="12" fill="#ecfeff"/>
+<rect x="30" y="3282" width="1660" height="12" fill="#ecfeff"/>
+<rect x="30" y="3248" width="7" height="260" rx="3" fill="#0e7490"/>
+<text x="52" y="3278" font-size="24">🤝</text>
+<text x="88" y="3273" font-size="18" font-weight="800" fill="#1a1a1a">Социальный танец и этика пола</text>
+<text x="88" y="3288" font-size="11.5" fill="#6b7280">Social Dance &amp; Floorcraft</text>
+<text x="1674" y="3270" font-size="20" font-weight="800" fill="#0e7490" text-anchor="end">14</text>
+<text x="1674" y="3286" font-size="9.5" fill="#0e7490" text-anchor="end" letter-spacing="1">НАВЫК</text>
+<text x="40" y="3310" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 4</text>
+<rect x="40" y="3320" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="3320" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="3335" font-size="12" font-weight="700" fill="#1a1a1a">Consent &amp; safety basics (right to say no)</text>
+<text x="51" y="3348" font-size="9.5" fill="#6b7280">Базовое согласие и безопасность (право сказать «нет»)</text>
+<rect x="40" y="3358" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="3358" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="3373" font-size="12" font-weight="700" fill="#1a1a1a">Dance etiquette basics</text>
+<text x="51" y="3386" font-size="9.5" fill="#6b7280">Базовый этикет приглашения и отказа</text>
+<rect x="40" y="3396" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="3396" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="3411" font-size="12" font-weight="700" fill="#1a1a1a">Social dancing as primary practice (go early)</text>
+<text x="51" y="3424" font-size="9.5" fill="#6b7280">Социал как главная практика — идти с первого дня</text>
+<rect x="40" y="3434" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="3434" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="3449" font-size="12" font-weight="700" fill="#1a1a1a">Telling partners you're new</text>
+<text x="51" y="3462" font-size="9.5" fill="#6b7280">Говорить партнёрам, что ты новичок</text>
+<text x="454" y="3310" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 4</text>
+<rect x="454" y="3320" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="3320" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="3335" font-size="12" font-weight="700" fill="#1a1a1a">Avoid pattern-chasing on the floor</text>
+<text x="464" y="3348" font-size="9.5" fill="#6b7280">Не гнаться за паттернами на социале</text>
+<rect x="454" y="3358" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="3358" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="3373" font-size="12" font-weight="700" fill="#1a1a1a">Cope with any partner (survive)</text>
+<text x="464" y="3386" font-size="9.5" fill="#6b7280">Справляться с любым партнёром (выживание)</text>
+<rect x="454" y="3396" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="3396" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="3411" font-size="12" font-weight="700" fill="#1a1a1a">Don't bring unrehearsed tricks to the social floor</text>
+<text x="464" y="3424" font-size="9.5" fill="#6b7280">Не выносить неотработанные трюки на социал</text>
+<rect x="454" y="3434" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="3434" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="3449" font-size="12" font-weight="700" fill="#1a1a1a">Floorcraft &amp; slot navigation (safety)</text>
+<text x="464" y="3462" font-size="9.5" fill="#6b7280">Floorcraft и навигация в слоте (безопасность)</text>
+<text x="867" y="3310" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 3</text>
+<rect x="867" y="3320" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3320" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3335" font-size="12" font-weight="700" fill="#1a1a1a">Breaking rules without disrupting the partner</text>
+<text x="878" y="3348" font-size="9.5" fill="#6b7280">Нарушать правила, не нарушая партнёра</text>
+<rect x="867" y="3358" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3358" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3373" font-size="12" font-weight="700" fill="#1a1a1a">Dance citizenship (culture &amp; history of WCS)</text>
+<text x="878" y="3386" font-size="9.5" fill="#6b7280">Гражданство танца: культура и история WCS</text>
+<rect x="867" y="3396" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3396" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3411" font-size="12" font-weight="700" fill="#1a1a1a">Trusted partners for risky moves</text>
+<text x="878" y="3424" font-size="9.5" fill="#6b7280">Доверенные партнёры для рискованных движений</text>
+<text x="1280" y="3310" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 3</text>
+<rect x="1280" y="3320" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="3320" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="3335" font-size="12" font-weight="700" fill="#1a1a1a">100% partner-comfort focus (Expert)</text>
+<text x="1292" y="3348" font-size="9.5" fill="#6b7280">100% фокус на комфорте партнёра (Expert)</text>
+<rect x="1280" y="3358" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="3358" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="3373" font-size="12" font-weight="700" fill="#1a1a1a">Elevate any partner (make them shine)</text>
+<text x="1292" y="3386" font-size="9.5" fill="#6b7280">Возвышать любого партнёра (сделать его звездой)</text>
+<rect x="1280" y="3396" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="3396" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="3411" font-size="12" font-weight="700" fill="#1a1a1a">Passing the dance forward (community building)</text>
+<text x="1292" y="3424" font-size="9.5" fill="#6b7280">Передавать танец дальше: построение сообщества</text>
+<rect x="30" y="3526" width="1660" height="366" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="3526" width="1660" height="46" rx="12" fill="#ecfeff"/>
+<rect x="30" y="3560" width="1660" height="12" fill="#ecfeff"/>
+<rect x="30" y="3526" width="7" height="366" rx="3" fill="#0e7490"/>
+<text x="52" y="3556" font-size="24">🏆</text>
+<text x="88" y="3551" font-size="18" font-weight="800" fill="#1a1a1a">Перформанс и конкурсы (WSDC)</text>
+<text x="88" y="3566" font-size="11.5" fill="#6b7280">Performance &amp; Competition (WSDC)</text>
+<text x="1674" y="3548" font-size="20" font-weight="800" fill="#0e7490" text-anchor="end">14</text>
+<text x="1674" y="3564" font-size="9.5" fill="#0e7490" text-anchor="end" letter-spacing="1">НАВЫК</text>
+<text x="40" y="3588" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 1</text>
+<rect x="40" y="3598" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="3598" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="3613" font-size="12" font-weight="700" fill="#1a1a1a">Watching competitions / understanding the format</text>
+<text x="51" y="3626" font-size="9.5" fill="#6b7280">Смотреть конкурсы и понимать формат</text>
+<text x="454" y="3588" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 2</text>
+<rect x="454" y="3598" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="3598" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="3613" font-size="12" font-weight="700" fill="#1a1a1a">Readiness for first Jack &amp; Jill</text>
+<text x="464" y="3626" font-size="9.5" fill="#6b7280">Готовность к первому Jack &amp; Jill</text>
+<rect x="454" y="3636" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="3636" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="3651" font-size="12" font-weight="700" fill="#1a1a1a">WSDC competition pyramid (Newcomer→Champion)</text>
+<text x="464" y="3664" font-size="9.5" fill="#6b7280">Соревновательная пирамида WSDC (Newcomer→Champion)</text>
+<text x="867" y="3588" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 6</text>
+<rect x="867" y="3598" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3598" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3613" font-size="12" font-weight="700" fill="#1a1a1a">Audition-readiness demonstration</text>
+<text x="878" y="3626" font-size="9.5" fill="#6b7280">Демонстрация готовности на аудишн</text>
+<rect x="867" y="3636" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3636" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3651" font-size="12" font-weight="700" fill="#1a1a1a">Competition / training mindset &amp; division strategy</text>
+<text x="878" y="3664" font-size="9.5" fill="#6b7280">Соревновательный настрой и стратегия дивизионов</text>
+<rect x="867" y="3674" width="400" height="51" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3674" width="4" height="51" rx="2" fill="#7c3aed"/>
+<text x="878" y="3689" font-size="12" font-weight="700" fill="#1a1a1a">Judging criteria (timing, technique, teamwork, content,</text>
+<text x="878" y="3702" font-size="12" font-weight="700" fill="#1a1a1a">presentation…)</text>
+<text x="878" y="3715" font-size="9.5" fill="#6b7280">Критерии судейства (тайминг, техника, тимворк, контент, п…</text>
+<rect x="867" y="3728" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3728" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3743" font-size="12" font-weight="700" fill="#1a1a1a">Reading judge scoring (relative placement)</text>
+<text x="878" y="3756" font-size="9.5" fill="#6b7280">Чтение судейского скоринга (относительные места)</text>
+<rect x="867" y="3766" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3766" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3781" font-size="12" font-weight="700" fill="#1a1a1a">Trusted practice partners for risky moves</text>
+<text x="878" y="3794" font-size="9.5" fill="#6b7280">Доверенные партнёры для рискованных движений</text>
+<rect x="867" y="3804" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3804" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3819" font-size="12" font-weight="700" fill="#1a1a1a">WSDC points &amp; petition mechanics</text>
+<text x="878" y="3832" font-size="9.5" fill="#6b7280">Механика очков и петиций WSDC</text>
+<text x="1280" y="3588" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 5</text>
+<rect x="1280" y="3598" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="3598" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="3613" font-size="12" font-weight="700" fill="#1a1a1a">Partner-commitment mastery (Champion ceiling)</text>
+<text x="1292" y="3626" font-size="9.5" fill="#6b7280">Полная самоотдача партнёру (потолок Champion)</text>
+<rect x="1280" y="3636" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="3636" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="3651" font-size="12" font-weight="700" fill="#1a1a1a">Routine / choreography for Classic &amp; Showcase</text>
+<text x="1292" y="3664" font-size="9.5" fill="#6b7280">Рутина и хореография для Classic и Showcase</text>
+<rect x="1280" y="3674" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="3674" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="3689" font-size="12" font-weight="700" fill="#1a1a1a">Showmanship / stage presence</text>
+<text x="1292" y="3702" font-size="9.5" fill="#6b7280">Шоуменство и сценическое присутствие</text>
+<rect x="1280" y="3712" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="3712" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="3727" font-size="12" font-weight="700" fill="#1a1a1a">Strictly division &amp; fixed partnership</text>
+<text x="1292" y="3740" font-size="9.5" fill="#6b7280">Дивизион Strictly и фиксированная пара</text>
+<rect x="1280" y="3750" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="3750" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="3765" font-size="12" font-weight="700" fill="#1a1a1a">Weight-supported / dip &amp; trick moves</text>
+<text x="1292" y="3778" font-size="9.5" fill="#6b7280">Поддержки и трюки с переносом веса</text>
+<rect x="30" y="3910" width="1660" height="350" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="3910" width="1660" height="46" rx="12" fill="#fffbeb"/>
+<rect x="30" y="3944" width="1660" height="12" fill="#fffbeb"/>
+<rect x="30" y="3910" width="7" height="350" rx="3" fill="#b45309"/>
+<text x="52" y="3940" font-size="24">🧩</text>
+<text x="88" y="3935" font-size="18" font-weight="800" fill="#1a1a1a">Паттерны: словарь фигур (слой применения)</text>
+<text x="88" y="3950" font-size="11.5" fill="#6b7280">Pattern Vocabulary (application layer)</text>
+<text x="1674" y="3932" font-size="20" font-weight="800" fill="#b45309" text-anchor="end">15</text>
+<text x="1674" y="3948" font-size="9.5" fill="#b45309" text-anchor="end" letter-spacing="1">ПАТТЕРНЫ</text>
+<text x="40" y="3972" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 6</text>
+<rect x="40" y="3982" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="3982" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="3997" font-size="12" font-weight="700" fill="#1a1a1a">Left Side Pass</text>
+<text x="51" y="4010" font-size="9.5" fill="#6b7280">Левый сайд-пасс (LSP)</text>
+<rect x="40" y="4020" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4020" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="4035" font-size="12" font-weight="700" fill="#1a1a1a">Passing Tuck</text>
+<text x="51" y="4048" font-size="9.5" fill="#6b7280">Пассинг-так</text>
+<rect x="40" y="4058" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4058" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="4073" font-size="12" font-weight="700" fill="#1a1a1a">Right Side Pass / Underarm Turn</text>
+<text x="51" y="4086" font-size="9.5" fill="#6b7280">Правый сайд-пасс / андерарм-тёрн (UAT)</text>
+<rect x="40" y="4096" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4096" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="4111" font-size="12" font-weight="700" fill="#1a1a1a">Starter Step</text>
+<text x="51" y="4124" font-size="9.5" fill="#6b7280">Стартер-степ (вход в танец)</text>
+<rect x="40" y="4134" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4134" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="4149" font-size="12" font-weight="700" fill="#1a1a1a">Sugar Push</text>
+<text x="51" y="4162" font-size="9.5" fill="#6b7280">Шугар-пуш (push break)</text>
+<rect x="40" y="4172" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4172" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="4187" font-size="12" font-weight="700" fill="#1a1a1a">Sugar Tuck</text>
+<text x="51" y="4200" font-size="9.5" fill="#6b7280">Шугар-так</text>
+<text x="454" y="3972" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 3</text>
+<rect x="454" y="3982" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="3982" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="3997" font-size="12" font-weight="700" fill="#1a1a1a">Amalgamation (phrase-locked vocabulary)</text>
+<text x="464" y="4010" font-size="9.5" fill="#6b7280">Амальгамация (заготовка под фразу)</text>
+<rect x="454" y="4020" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4020" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4035" font-size="12" font-weight="700" fill="#1a1a1a">Free Spin</text>
+<text x="464" y="4048" font-size="9.5" fill="#6b7280">Фри-спин (свободное вращение)</text>
+<text x="845" y="4033" font-size="8.5" font-weight="700" fill="#db2777" text-anchor="end">follow</text>
+<rect x="454" y="4058" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4058" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4073" font-size="12" font-weight="700" fill="#1a1a1a">Whip (first whip)</text>
+<text x="464" y="4086" font-size="9.5" fill="#6b7280">Вип (первый вип) — точка перегиба</text>
+<text x="867" y="3972" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 4</text>
+<rect x="867" y="3982" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="3982" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="3997" font-size="12" font-weight="700" fill="#1a1a1a">Fold family (Hammerlock, Sweetheart)</text>
+<text x="878" y="4010" font-size="9.5" fill="#6b7280">Семейство фолдов (Hammerlock, Sweetheart)</text>
+<rect x="867" y="4020" width="400" height="51" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4020" width="4" height="51" rx="2" fill="#7c3aed"/>
+<text x="878" y="4035" font-size="12" font-weight="700" fill="#1a1a1a">L3 vocabulary (Roll In/Out, Slingshot, Yoyo, Rock and</text>
+<text x="878" y="4048" font-size="12" font-weight="700" fill="#1a1a1a">Go)</text>
+<text x="878" y="4061" font-size="9.5" fill="#6b7280">L3-лексика (Roll In/Out, Slingshot, Yoyo, Rock and Go)</text>
+<rect x="867" y="4074" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4074" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="4089" font-size="12" font-weight="700" fill="#1a1a1a">Run-time pattern application (deploying vocabulary live)</text>
+<text x="878" y="4102" font-size="9.5" fill="#6b7280">Применение словаря в реальном времени (run-time)</text>
+<rect x="867" y="4112" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4112" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="4127" font-size="12" font-weight="700" fill="#1a1a1a">Whip variations (Inside/Outside Turn, Reverse)</text>
+<text x="878" y="4140" font-size="9.5" fill="#6b7280">Вариации випа (Inside/Outside Turn, Reverse Whip)</text>
+<text x="1280" y="3972" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 2</text>
+<rect x="1280" y="3982" width="400" height="51" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="3982" width="4" height="51" rx="2" fill="#d97706"/>
+<text x="1292" y="3997" font-size="12" font-weight="700" fill="#1a1a1a">Champion combos (Behind The Back, Snapbasket, Triple</text>
+<text x="1292" y="4010" font-size="12" font-weight="700" fill="#1a1a1a">Threat, Drops)</text>
+<text x="1292" y="4023" font-size="9.5" fill="#6b7280">Champion-комбо (Behind The Back, Snapbasket, Triple Threa…</text>
+<rect x="1280" y="4036" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="4036" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="4051" font-size="12" font-weight="700" fill="#1a1a1a">Weight-supported / dip &amp; trick moves</text>
+<text x="1292" y="4064" font-size="9.5" fill="#6b7280">Поддержки, дипы и трюки с переносом веса</text>
+<rect x="30" y="4278" width="1660" height="305" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="4278" width="1660" height="46" rx="12" fill="#fffbeb"/>
+<rect x="30" y="4312" width="1660" height="12" fill="#fffbeb"/>
+<rect x="30" y="4278" width="7" height="305" rx="3" fill="#b45309"/>
+<text x="52" y="4308" font-size="24">🛠️</text>
+<text x="88" y="4303" font-size="18" font-weight="800" fill="#1a1a1a">Паттерны: конструирование и вариации</text>
+<text x="88" y="4318" font-size="11.5" fill="#6b7280">Pattern Construction &amp; Variation</text>
+<text x="1674" y="4300" font-size="20" font-weight="800" fill="#b45309" text-anchor="end">14</text>
+<text x="1674" y="4316" font-size="9.5" fill="#b45309" text-anchor="end" letter-spacing="1">ПАТТЕРНЫ</text>
+<text x="40" y="4340" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 3</text>
+<rect x="40" y="4350" width="400" height="51" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4350" width="4" height="51" rx="2" fill="#16a34a"/>
+<text x="51" y="4365" font-size="12" font-weight="700" fill="#1a1a1a">Mirror-logic pattern building (same action, opposite</text>
+<text x="51" y="4378" font-size="12" font-weight="700" fill="#1a1a1a">direction)</text>
+<text x="51" y="4391" font-size="9.5" fill="#6b7280">Зеркальная логика построения (то же действие — в другую с…</text>
+<rect x="40" y="4404" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4404" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="4419" font-size="12" font-weight="700" fill="#1a1a1a">Pattern anatomy: entry — body action — anchor</text>
+<text x="51" y="4432" font-size="9.5" fill="#6b7280">Анатомия паттерна: вход — действие корпуса — якорь</text>
+<rect x="40" y="4442" width="400" height="51" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4442" width="4" height="51" rx="2" fill="#16a34a"/>
+<text x="51" y="4457" font-size="12" font-weight="700" fill="#1a1a1a">Pattern-name cross-mapping (Push Break = Sugar Push, UAT</text>
+<text x="51" y="4470" font-size="12" font-weight="700" fill="#1a1a1a">= RSP)</text>
+<text x="51" y="4483" font-size="9.5" fill="#6b7280">Кросс-маппинг имён паттернов (Push Break = Sugar Push, UA…</text>
+<text x="454" y="4340" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 5</text>
+<rect x="454" y="4350" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4350" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4365" font-size="12" font-weight="700" fill="#1a1a1a">Amalgamation (phrase-locked pattern integration)</text>
+<text x="464" y="4378" font-size="9.5" fill="#6b7280">Амальгамация (сборка паттернов под фразу) — canonical</text>
+<rect x="454" y="4388" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4388" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4403" font-size="12" font-weight="700" fill="#1a1a1a">Hand changes &amp; handhold variations</text>
+<text x="464" y="4416" font-size="9.5" fill="#6b7280">Смены рук и вариации хватов</text>
+<rect x="454" y="4426" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4426" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4441" font-size="12" font-weight="700" fill="#1a1a1a">Pattern variations (turn direction, spins, reversals)</text>
+<text x="464" y="4454" font-size="9.5" fill="#6b7280">Вариации паттернов (направление поворота, спины, реверсы)</text>
+<rect x="454" y="4464" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4464" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4479" font-size="12" font-weight="700" fill="#1a1a1a">Position transitions (open ↔ closed)</text>
+<text x="464" y="4492" font-size="9.5" fill="#6b7280">Переходы позиций (открытая ↔ закрытая)</text>
+<rect x="454" y="4502" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4502" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4517" font-size="12" font-weight="700" fill="#1a1a1a">Slot redirect &amp; bending the slot</text>
+<text x="464" y="4530" font-size="9.5" fill="#6b7280">Редирект слота и «изгиб» слота</text>
+<text x="845" y="4515" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="end">lead</text>
+<text x="867" y="4340" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 4</text>
+<rect x="867" y="4350" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4350" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="4365" font-size="12" font-weight="700" fill="#1a1a1a">Organizing repertoire to free bandwidth</text>
+<text x="878" y="4378" font-size="9.5" fill="#6b7280">Организация репертуара ради свободы внимания</text>
+<rect x="867" y="4388" width="400" height="51" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4388" width="4" height="51" rx="2" fill="#7c3aed"/>
+<text x="878" y="4403" font-size="12" font-weight="700" fill="#1a1a1a">Pattern dissection — teach yourself ANY pattern (Module</text>
+<text x="878" y="4416" font-size="12" font-weight="700" fill="#1a1a1a">5)</text>
+<text x="878" y="4429" font-size="9.5" fill="#6b7280">Разбор паттерна — научить себя ЛЮБОЙ фигуре (Module 5)</text>
+<rect x="867" y="4442" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4442" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="4457" font-size="12" font-weight="700" fill="#1a1a1a">Pattern extension via rhythm &amp; stretch</text>
+<text x="878" y="4470" font-size="9.5" fill="#6b7280">Расширение паттернов через ритм и растяжение</text>
+<rect x="867" y="4480" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4480" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="4495" font-size="12" font-weight="700" fill="#1a1a1a">Variations as the design-time bridge to improvisation</text>
+<text x="878" y="4508" font-size="9.5" fill="#6b7280">Вариации как (design-time) заготовка для импровизации</text>
+<text x="1280" y="4340" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 2</text>
+<rect x="1280" y="4350" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="4350" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="4365" font-size="12" font-weight="700" fill="#1a1a1a">Breaking pattern rules while preserving flow</text>
+<text x="1292" y="4378" font-size="9.5" fill="#6b7280">Осознанное нарушение правил с сохранением потока</text>
+<rect x="1280" y="4388" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="4388" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="4403" font-size="12" font-weight="700" fill="#1a1a1a">Constructing genuinely new patterns</text>
+<text x="1292" y="4416" font-size="9.5" fill="#6b7280">Конструирование действительно новых паттернов</text>
+<rect x="30" y="4601" width="1660" height="485" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="4601" width="1660" height="46" rx="12" fill="#f5f3ff"/>
+<rect x="30" y="4635" width="1660" height="12" fill="#f5f3ff"/>
+<rect x="30" y="4601" width="7" height="485" rx="3" fill="#6d28d9"/>
+<text x="52" y="4631" font-size="24">🧠</text>
+<text x="88" y="4626" font-size="18" font-weight="800" fill="#1a1a1a">Мета-навыки практики</text>
+<text x="88" y="4641" font-size="11.5" fill="#6b7280">Practice Meta-Skills</text>
+<text x="1674" y="4623" font-size="20" font-weight="800" fill="#6d28d9" text-anchor="end">19</text>
+<text x="1674" y="4639" font-size="9.5" fill="#6d28d9" text-anchor="end" letter-spacing="1">МЕТА</text>
+<text x="40" y="4663" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 4</text>
+<rect x="40" y="4673" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4673" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="4688" font-size="12" font-weight="700" fill="#1a1a1a">Learning how to learn to dance (meta-pedagogy)</text>
+<text x="51" y="4701" font-size="9.5" fill="#6b7280">Учиться тому, как учиться танцу</text>
+<rect x="40" y="4711" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4711" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="4726" font-size="12" font-weight="700" fill="#1a1a1a">Partner rotation</text>
+<text x="51" y="4739" font-size="9.5" fill="#6b7280">Ротация партнёров</text>
+<rect x="40" y="4749" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4749" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="4764" font-size="12" font-weight="700" fill="#1a1a1a">Social dancing as primary practice</text>
+<text x="51" y="4777" font-size="9.5" fill="#6b7280">Социальные танцы как главная практика</text>
+<rect x="40" y="4787" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="4787" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="4802" font-size="12" font-weight="700" fill="#1a1a1a">Telling partners you're new</text>
+<text x="51" y="4815" font-size="9.5" fill="#6b7280">Говорить партнёрам, что ты новичок</text>
+<text x="454" y="4663" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 9</text>
+<rect x="454" y="4673" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4673" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4688" font-size="12" font-weight="700" fill="#1a1a1a">Cross-role training (learn the other role)</text>
+<text x="464" y="4701" font-size="9.5" fill="#6b7280">Кросс-ролевое обучение (учить противоположную роль)</text>
+<rect x="454" y="4711" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4711" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4726" font-size="12" font-weight="700" fill="#1a1a1a">Deliberate practice structure (drilling reps)</text>
+<text x="464" y="4739" font-size="9.5" fill="#6b7280">Структурированная практика и дриллы повторений</text>
+<rect x="454" y="4749" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4749" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4764" font-size="12" font-weight="700" fill="#1a1a1a">Ideal westie diet / training balance</text>
+<text x="464" y="4777" font-size="9.5" fill="#6b7280">Идеальный «рацион» тренировок</text>
+<rect x="454" y="4787" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4787" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4802" font-size="12" font-weight="700" fill="#1a1a1a">One improvement point per session</text>
+<text x="464" y="4815" font-size="9.5" fill="#6b7280">Одна точка улучшения за сессию</text>
+<rect x="454" y="4825" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4825" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4840" font-size="12" font-weight="700" fill="#1a1a1a">Private lessons early</text>
+<text x="464" y="4853" font-size="9.5" fill="#6b7280">Ранние индивидуальные уроки</text>
+<rect x="454" y="4863" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4863" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4878" font-size="12" font-weight="700" fill="#1a1a1a">Progress journaling / tracking</text>
+<text x="464" y="4891" font-size="9.5" fill="#6b7280">Дневник прогресса</text>
+<rect x="454" y="4901" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4901" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4916" font-size="12" font-weight="700" fill="#1a1a1a">Skill self-assessment on a skills map</text>
+<text x="464" y="4929" font-size="9.5" fill="#6b7280">Самооценка по карте навыков</text>
+<rect x="454" y="4939" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4939" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4954" font-size="12" font-weight="700" fill="#1a1a1a">Solo drills (theraband / fridge-door)</text>
+<text x="464" y="4967" font-size="9.5" fill="#6b7280">Сольные дриллы (theraband / дверь холодильника)</text>
+<rect x="454" y="4977" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="4977" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="4992" font-size="12" font-weight="700" fill="#1a1a1a">Video yourself / video review</text>
+<text x="464" y="5005" font-size="9.5" fill="#6b7280">Самозапись на видео и видеоразбор</text>
+<text x="867" y="4663" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 5</text>
+<rect x="867" y="4673" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4673" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="4688" font-size="12" font-weight="700" fill="#1a1a1a">Aspirational modeling (watch compatible champions)</text>
+<text x="878" y="4701" font-size="9.5" fill="#6b7280">Моделирование по образцу</text>
+<rect x="867" y="4711" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4711" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="4726" font-size="12" font-weight="700" fill="#1a1a1a">Avoid pattern-chasing</text>
+<text x="878" y="4739" font-size="9.5" fill="#6b7280">Избегать погони за паттернами</text>
+<rect x="867" y="4749" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4749" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="4764" font-size="12" font-weight="700" fill="#1a1a1a">Body care &amp; injury prevention</text>
+<text x="878" y="4777" font-size="9.5" fill="#6b7280">Забота о теле и профилактика травм</text>
+<rect x="867" y="4787" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4787" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="4802" font-size="12" font-weight="700" fill="#1a1a1a">Don't bring unrehearsed tricks to the social floor</text>
+<text x="878" y="4815" font-size="9.5" fill="#6b7280">Не выносить неотработанные трюки на социал</text>
+<rect x="867" y="4825" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="4825" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="4840" font-size="12" font-weight="700" fill="#1a1a1a">Trusted practice partners for risky moves</text>
+<text x="878" y="4853" font-size="9.5" fill="#6b7280">Доверенные партнёры для рискованных движений</text>
+<text x="1280" y="4663" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 1</text>
+<rect x="1280" y="4673" width="400" height="51" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="4673" width="4" height="51" rx="2" fill="#d97706"/>
+<text x="1292" y="4688" font-size="12" font-weight="700" fill="#1a1a1a">Teaching pedagogy — passing the dance on (teach the</text>
+<text x="1292" y="4701" font-size="12" font-weight="700" fill="#1a1a1a">«how»)</text>
+<text x="1292" y="4714" font-size="9.5" fill="#6b7280">Передавать танец дальше — учить «как», а не «что»</text>
+<rect x="30" y="5104" width="1660" height="350" rx="12" fill="#ffffff" stroke="#e8e8e3"/>
+<rect x="30" y="5104" width="1660" height="46" rx="12" fill="#f5f3ff"/>
+<rect x="30" y="5138" width="1660" height="12" fill="#f5f3ff"/>
+<rect x="30" y="5104" width="7" height="350" rx="3" fill="#6d28d9"/>
+<text x="52" y="5134" font-size="24">🎓</text>
+<text x="88" y="5129" font-size="18" font-weight="800" fill="#1a1a1a">Преподавание и сообщество</text>
+<text x="88" y="5144" font-size="11.5" fill="#6b7280">Teaching &amp; Community</text>
+<text x="1674" y="5126" font-size="20" font-weight="800" fill="#6d28d9" text-anchor="end">15</text>
+<text x="1674" y="5142" font-size="9.5" fill="#6d28d9" text-anchor="end" letter-spacing="1">МЕТА</text>
+<text x="40" y="5166" font-size="10.5" font-weight="700" fill="#16a34a" letter-spacing=".3">① Новичок · 2</text>
+<rect x="40" y="5176" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="5176" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="5191" font-size="12" font-weight="700" fill="#1a1a1a">Learning how to learn (meta-pedagogy)</text>
+<text x="51" y="5204" font-size="9.5" fill="#6b7280">Учиться тому, как учиться</text>
+<rect x="40" y="5214" width="400" height="35" rx="7" fill="#f0fdf4" stroke="#e8e8e3"/>
+<rect x="40" y="5214" width="4" height="35" rx="2" fill="#16a34a"/>
+<text x="51" y="5229" font-size="12" font-weight="700" fill="#1a1a1a">Telling partners you're new</text>
+<text x="51" y="5242" font-size="9.5" fill="#6b7280">Говорить партнёрам, что ты новичок</text>
+<text x="454" y="5166" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing=".3">② Уверенный · 3</text>
+<rect x="454" y="5176" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="5176" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="5191" font-size="12" font-weight="700" fill="#1a1a1a">Assisting / demo helper role</text>
+<text x="464" y="5204" font-size="9.5" fill="#6b7280">Ассистирование и роль демо-помощника</text>
+<rect x="454" y="5214" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="5214" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="5229" font-size="12" font-weight="700" fill="#1a1a1a">Cross-role training (dancing both roles)</text>
+<text x="464" y="5242" font-size="9.5" fill="#6b7280">Кросс-ролевое обучение (танцевать обе роли)</text>
+<rect x="454" y="5252" width="400" height="35" rx="7" fill="#eff6ff" stroke="#e8e8e3"/>
+<rect x="454" y="5252" width="4" height="35" rx="2" fill="#2563eb"/>
+<text x="464" y="5267" font-size="12" font-weight="700" fill="#1a1a1a">Skill self-placement (Dreyfus self-assessment)</text>
+<text x="464" y="5280" font-size="9.5" fill="#6b7280">Самооценка уровня по карте навыков</text>
+<text x="867" y="5166" font-size="10.5" font-weight="700" fill="#7c3aed" letter-spacing=".3">③ Компетентный · 6</text>
+<rect x="867" y="5176" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="5176" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="5191" font-size="12" font-weight="700" fill="#1a1a1a">Anchor-first teaching (SKILLS-FIRST camp)</text>
+<text x="878" y="5204" font-size="9.5" fill="#6b7280">«Якорь в первую очередь» (лагерь skills-first)</text>
+<rect x="867" y="5214" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="5214" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="5229" font-size="12" font-weight="700" fill="#1a1a1a">Mirror-logic teaching (PATTERNS-FIRST camp)</text>
+<text x="878" y="5242" font-size="9.5" fill="#6b7280">Зеркальная логика (лагерь patterns-first)</text>
+<rect x="867" y="5252" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="5252" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="5267" font-size="12" font-weight="700" fill="#1a1a1a">One-pattern-per-lesson pacing (PATTERNS-FIRST camp)</text>
+<text x="878" y="5280" font-size="9.5" fill="#6b7280">Новый паттерн на урок (лагерь patterns-first)</text>
+<rect x="867" y="5290" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="5290" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="5305" font-size="12" font-weight="700" fill="#1a1a1a">Patterns-as-vehicles principle (SKILLS-FIRST camp)</text>
+<text x="878" y="5318" font-size="9.5" fill="#6b7280">«Паттерны — это средства» (лагерь skills-first)</text>
+<rect x="867" y="5328" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="5328" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="5343" font-size="12" font-weight="700" fill="#1a1a1a">Teaching at the student's level (not above)</text>
+<text x="878" y="5356" font-size="9.5" fill="#6b7280">Преподавать на уровне ученика, а не выше</text>
+<rect x="867" y="5366" width="400" height="35" rx="7" fill="#faf5ff" stroke="#e8e8e3"/>
+<rect x="867" y="5366" width="4" height="35" rx="2" fill="#7c3aed"/>
+<text x="878" y="5381" font-size="12" font-weight="700" fill="#1a1a1a">Vocabulary cross-mapping in syllabus</text>
+<text x="878" y="5394" font-size="9.5" fill="#6b7280">Кросс-маппинг терминологии в силлабусе</text>
+<text x="1280" y="5166" font-size="10.5" font-weight="700" fill="#d97706" letter-spacing=".3">④ Мастер и наставник · 4</text>
+<rect x="1280" y="5176" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="5176" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="5191" font-size="12" font-weight="700" fill="#1a1a1a">Building and sustaining community</text>
+<text x="1292" y="5204" font-size="9.5" fill="#6b7280">Построение и поддержание сообщества</text>
+<rect x="1280" y="5214" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="5214" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="5229" font-size="12" font-weight="700" fill="#1a1a1a">Syllabus &amp; curriculum design</text>
+<text x="1292" y="5242" font-size="9.5" fill="#6b7280">Проектирование силлабуса и учебной программы</text>
+<rect x="1280" y="5252" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="5252" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="5267" font-size="12" font-weight="700" fill="#1a1a1a">Training other teachers</text>
+<text x="1292" y="5280" font-size="9.5" fill="#6b7280">Обучение других преподавателей</text>
+<rect x="1280" y="5290" width="400" height="35" rx="7" fill="#fffbeb" stroke="#e8e8e3"/>
+<rect x="1280" y="5290" width="4" height="35" rx="2" fill="#d97706"/>
+<text x="1292" y="5305" font-size="12" font-weight="700" fill="#1a1a1a">«Talk less, teach more» pedagogy</text>
+<text x="1292" y="5318" font-size="9.5" fill="#6b7280">Методика «меньше слов, больше обучения»</text>
+<text x="30" y="5512" font-size="12" fill="#6b7280">Полная карта компетенций WCS · отметь свой уровень в master.html · подробности каждого элемента — master-full.html / MASTER-MAP.md</text>
+</svg>
