@@ -165,12 +165,13 @@ console.log('записан graph-data.js');
 
 // ---- inject into html ----
 let ok = true;
+const re = /window\.WCS_GRAPH = \{[\s\S]*?\n\};/;
 for (const f of ['index.html', 'network.html', 'editor.html']) {
   const p = dir + f;
   const before = fs.readFileSync(p, 'utf8');
-  const after = before.replace(/window\.WCS_GRAPH = \{[\s\S]*?\n\};/, () => assign);
-  if (after === before) { console.log('WARN: в ' + f + ' не нашёл блок данных для замены'); ok = false; }
-  fs.writeFileSync(p, after);
-  console.log('вшит', f);
+  if (!re.test(before)) { console.log('WARN: в ' + f + ' не нашёл блок данных для замены'); ok = false; continue; }
+  const after = before.replace(re, () => assign);
+  if (after !== before) fs.writeFileSync(p, after);
+  console.log((after !== before ? 'вшит ' : 'без изменений ') + f);
 }
 process.exit(ok ? 0 : 2);

@@ -79,7 +79,7 @@
     <span class="chip off" data-group="level">уровень</span>
     <button class="btn" id="toggle-ms">Показать вехи</button>
     <button class="btn" id="reset">Сброс</button>
-    <button class="btn" id="save-blocks">💾 Сохранить blocks.txt</button>
+    <button class="btn" id="save-blocks">💾 Сохранить в GitHub</button>
     <span id="save-status" style="font-size:12px;color:var(--muted)"></span>
     <span id="order-status" style="font-size:12px"></span>
   </div>
@@ -227,8 +227,10 @@ window.WCS_GRAPH = {
 };
 
 </script>
+<script src="gh-sync.js"></script>
 <script>
-(function(){
+(async function(){
+  if (window.__refreshGraph) { try { await window.__refreshGraph(); } catch(e){} }
   const G = window.WCS_GRAPH;
   if(!G){document.getElementById("graph").innerHTML="<div style='padding:20px;color:#a33'>Данные графа не загрузились (window.WCS_GRAPH отсутствует).</div>";return;}
   const byId = {}; G.skills.forEach(s=>byId[s.id]=s);
@@ -346,6 +348,12 @@ window.WCS_GRAPH = {
   }
   async function saveBlocks(){
     const text=genBlocksTxt();
+    if(window.__ghSave && /^https?:$/.test(location.protocol)){
+      setStatus('Сохраняю в GitHub…');
+      const r=await window.__ghSave('blocks.txt',text,'blocks: правки роадмапа из матрицы');
+      if(r.ok){ dirty=false; setStatus('сохранено в GitHub ✓'); } else setStatus(r.msg,true);
+      return;
+    }
     try{
       if(window.showOpenFilePicker){
         if(!blocksHandle){ [blocksHandle]=await window.showOpenFilePicker({types:[{description:'blocks.txt',accept:{'text/plain':['.txt']}}]}); }

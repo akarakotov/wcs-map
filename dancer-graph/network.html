@@ -170,11 +170,13 @@ window.WCS_GRAPH = {
 };
 
 </script>
+<script src="gh-sync.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dagre@0.8.5/dist/dagre.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.min.js"></script>
 <script>
-(function(){
+(async function(){
+  if (window.__refreshGraph) { try { await window.__refreshGraph(); } catch(e){} }
   const G = window.WCS_GRAPH;
   if(typeof cytoscape==="undefined" || !G){ document.getElementById("err").style.display="block"; document.getElementById("cy").style.display="none"; return; }
   try{ cytoscape.use(window.cytoscapeDagre); }catch(e){}

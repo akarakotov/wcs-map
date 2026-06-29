@@ -31,13 +31,14 @@
   <button class="btn danger" id="del" disabled>🗑 удалить выбранную</button>
   <button class="btn" id="fit">в экран</button>
   <button class="btn" id="export">экспорт graph.txt</button>
+  <button class="btn" id="gh-save">💾 Сохранить в GitHub</button>
   <span class="k" style="color:var(--muted);font-size:12px">синий→Фразы · фиолет→Слова · янтарь→Разговор · серый→Техника · звёзды→вехи</span>
 </div>
 <div id="info">Клик по ребру — выделить (потом «удалить»). «Добавить связь»: кликни узел-пререквизит, затем тот, которому он нужен. Колесо — зум.</div>
 <div id="cy"></div>
 <div id="exp">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-    <b>graph.txt — сохрани этот текст в файл и прогони <code>node build.mjs</code></b>
+    <b>graph.txt — превью. Обычно жми «💾 Сохранить в GitHub». «скачать» — если нужен файл вручную.</b>
     <span><button class="btn" id="download">скачать</button> <button class="btn" id="exp-close">закрыть</button></span>
   </div>
   <textarea id="exp-area" readonly></textarea>
@@ -163,11 +164,13 @@ window.WCS_GRAPH = {
   ]
 };
 </script>
+<script src="gh-sync.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dagre@0.8.5/dist/dagre.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.min.js"></script>
 <script>
-(function(){
+(async function(){
+  if (window.__refreshGraph) { try { await window.__refreshGraph(); } catch(e){} }
   const G = window.WCS_GRAPH;
   if (typeof cytoscape === "undefined" || !G || !G.skills) { document.getElementById("err").style.display="block"; document.getElementById("cy").style.display="none"; return; }
   try { cytoscape.use(window.cytoscapeDagre); } catch(e){}
@@ -283,6 +286,14 @@ window.WCS_GRAPH = {
   document.getElementById("exp-close").onclick=()=>{ document.getElementById("exp").style.display="none"; };
   document.getElementById("download").onclick=()=>{ const blob=new Blob([exportGraphTxt()],{type:"text/plain"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="graph.txt"; a.click(); };
   document.getElementById("fit").onclick=()=>cy.fit(undefined,30);
+  const ghBtn=document.getElementById("gh-save");
+  if(ghBtn) ghBtn.onclick=async()=>{
+    ghBtn.disabled=true; info.innerHTML="Сохраняю связи в GitHub…";
+    const r = window.__ghSave ? await window.__ghSave("graph.txt", exportGraphTxt(), "graph: правки связей из редактора")
+                              : {ok:false,msg:"gh-sync.js не загрузился"};
+    info.innerHTML = r.ok ? ("✓ "+r.msg) : ("<span class='warn'>"+r.msg+"</span>");
+    ghBtn.disabled=false;
+  };
 
   window._editor = { model, addEdge, exportGraphTxt, cy }; // для тестов
 })();
