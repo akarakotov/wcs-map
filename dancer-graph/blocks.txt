@@ -1,0 +1,16 @@
+# Блоки изучения. Перемести id между строками b*: чтобы изменить блок.
+# Формат: [blocks] bN | месяцы | название ; затем [assign] bN: id, id, ...
+
+[blocks]
+b1 | 0–3 мес | Beginner-курс (база + первый вип)
+b2 | 3–6 мес | Доводка техники и музыкальность
+b3 | 6–9 мес | Вариации и синкопы
+b4 | 9–12 мес | Продвинутый словарь
+b5 | 12+ мес | Свободный разговор
+
+[assign]
+b1: tech-basic-rhythm, tech-hear-beat, tech-frame, tech-handhold, tech-slot, tech-send-catch, tech-anchor, tech-comp-stretch, tech-third-foot, tech-body-flight, tech-weight-transfer, tech-turning, phr-starter, phr-rotating-starter, phr-lsp, phr-uat, phr-handchange, phr-sugar-push, phr-sugar-tuck, phr-passing-tuck, phr-turning-basic, phr-free-spin, phr-inside-turn, phr-first-whip, phr-basket-whip, talk-presence, talk-basic-music, talk-playfulness
+b2: tech-rolling-count, tech-elasticity, tech-leverage, tech-pulse, tech-contrabody, tech-posture, tech-cpb, tech-direction, tech-traffic-hand, tech-gas-brake, word-send-vs-push, word-other-hand, word-footwork-var, talk-call-response, talk-phrasing, talk-pauses, talk-accents, talk-intonation, talk-listening
+b3: phr-tuck-throwout, phr-closed-tuck, phr-sugar-tuck-double, phr-roll, phr-sugar-roll, phr-whip-inside, phr-whip-outside, phr-whip-open, phr-whip-behind, phr-whip-stalker, phr-reverse-whip, phr-boomerang, word-redirections, word-preps, word-slingshot, word-cutoff, word-rock-and-go, word-folds, word-basic-sync, word-delayed, word-double-spins, word-follow-complete, talk-prelead, talk-hijack-intro
+b4: tech-isolations, tech-spinal, tech-arm-styling, tech-swung, tech-adv-anchor, tech-planes, phr-hammerlock, phr-top-spinner, phr-ducks, phr-telemark, phr-dips, phr-long-combos, word-adv-sync, word-over-rotation, word-construct, talk-layers, talk-song-new
+b5: phr-yoyo, talk-dialogue, talk-change-topic, talk-play, talk-own-voice, talk-hits-breaks

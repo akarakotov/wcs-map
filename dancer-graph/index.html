@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Карта развития танцора WCS — граф</title>
+<style>
+  :root{
+    --bg:#faf9f5; --panel:#ffffff; --ink:#23211c; --muted:#6b675e;
+    --line:#e4e1d8; --line2:#cfccc2;
+    --self:#7F77DD; --partner:#D85A30; --music:#1D9E75;
+    --star:#BA7517; --req:#1D9E75; --gate:#BA7517;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:14px;line-height:1.4}
+  header{padding:16px 20px 10px}
+  .star{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600}
+  .star .badge{color:var(--star);font-size:22px}
+  .star small{display:block;font-weight:400;font-size:12px;color:var(--muted)}
+  .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+  .chip{border:1px solid var(--line2);background:var(--panel);border-radius:20px;
+    padding:5px 11px;cursor:pointer;font-size:12.5px;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .chip .dot{width:9px;height:9px;border-radius:50%}
+  .chip.off{opacity:.4}
+  .btn{border:1px solid var(--line2);background:var(--panel);border-radius:8px;padding:5px 11px;cursor:pointer;font-size:12.5px}
+  .btn:hover{border-color:var(--ink)}
+  .hint{color:var(--muted);font-size:12px;margin-top:8px}
+  #info{margin:10px 20px;padding:10px 14px;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;min-height:42px;font-size:13px}
+  #info .k{color:var(--muted)}
+  #info b{font-weight:600}
+  #graph{position:relative;margin:6px 14px 30px;overflow-x:auto}
+  svg.edges{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:visible}
+  .matrix{display:grid;grid-template-columns:118px repeat(3,minmax(190px,1fr));gap:8px;position:relative;z-index:2}
+  .hcell{font-size:12px;color:var(--muted);font-weight:600;padding:6px 4px;text-align:center}
+  .corner{}
+  .blabel{display:flex;flex-direction:column;justify-content:center;padding:8px;border-radius:10px;
+    background:var(--panel);border:1px solid var(--line);font-weight:600}
+  .blabel small{font-weight:400;color:var(--muted);font-size:11px;margin-top:2px}
+  .blabel.talk{background:#fbf1df;border-color:#e6d3a8}
+  .cell{display:flex;flex-direction:column;gap:6px;padding:4px;border-radius:10px;
+    background:rgba(0,0,0,.015);min-height:40px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 8px;
+    cursor:pointer;font-size:12.5px;line-height:1.3;transition:opacity .12s,border-color .12s}
+  .card:hover{border-color:var(--line2)}
+  .card .voices{display:flex;gap:4px;margin-bottom:4px}
+  .card .vd{width:8px;height:8px;border-radius:50%}
+  .vd.self{background:var(--self)} .vd.partner{background:var(--partner)} .vd.music{background:var(--music)}
+  .card.active{border-color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+  .card.req{border-color:var(--req);background:#eafaf2}
+  .card.dim{opacity:.22}
+  .card.voiceoff{opacity:.16;pointer-events:none}
+  .ms-section{margin-top:14px}
+  .ms-head{font-size:12px;color:var(--muted);font-weight:600;margin:0 4px 6px}
+  .ms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+  .ms-card{background:#fbf1df;border:1px solid #e6d3a8;border-radius:8px;padding:7px 9px;cursor:pointer;font-size:12.5px}
+  .ms-card .ctx{font-size:11px;color:#8a6a1e;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+  .ms-card.active{box-shadow:0 0 0 2px var(--gate)}
+  .ms-card.dim{opacity:.25}
+  .ms-card.req{border-color:var(--gate);background:#f7e6c4}
+  .cell.drop-hover{outline:2px dashed var(--req);outline-offset:-2px;background:#eafaf2}
+  .card[draggable="true"]{cursor:grab}
+  .card.dragging{opacity:.4}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="star"><span class="badge">★</span><span id="star-label">Самовыражение в паре<small id="star-sub">полярная звезда</small></span></div>
+  <div class="controls" id="controls">
+    <span style="font-size:12px;color:var(--muted)">Голоса:</span>
+    <span class="chip" data-voice="self"><span class="dot" style="background:var(--self)"></span>я</span>
+    <span class="chip" data-voice="partner"><span class="dot" style="background:var(--partner)"></span>коннекшен</span>
+    <span class="chip" data-voice="music"><span class="dot" style="background:var(--music)"></span>музыка</span>
+    <span style="font-size:12px;color:var(--muted)">· колонки:</span>
+    <span class="chip" data-group="block">блок</span>
+    <span class="chip off" data-group="level">уровень</span>
+    <button class="btn" id="toggle-ms">Показать вехи</button>
+    <button class="btn" id="reset">Сброс</button>
+    <button class="btn" id="save-blocks">💾 Сохранить blocks.txt</button>
+    <span id="save-status" style="font-size:12px;color:var(--muted)"></span>
+    <span id="order-status" style="font-size:12px"></span>
+  </div>
+  <div class="hint">Клик по узлу — подсветит, что для него «нужно» (вся цепочка вниз) и какие вехи он открывает. Клик по вехе — что её питает. Ветки растут <b>параллельно</b>; связь между ними — «по уровню».</div>
+</header>
+
+<div id="info">Выбери узел или веху, чтобы увидеть связи.</div>
+<div id="order-banner" style="display:none;margin:0 20px 6px;padding:8px 12px;border:1px solid #e0b4b4;background:#fcebeb;border-radius:8px;font-size:13px;color:#A32D2D"></div>
+
+<div id="graph">
+  <svg class="edges" id="edges"><defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1D9E75"></path>
+    </marker>
+  </defs></svg>
+  <div class="matrix" id="matrix"></div>
+  <div class="ms-section hidden" id="ms-section">
+    <div class="ms-head">Вехи, которые можно праздновать</div>
+    <div class="ms-grid" id="ms-grid"></div>
+  </div>
+</div>
+
+<script>
+/* Данные встроены из graph-data.js (источник правды). Регенерация: inline.mjs */
+/* Данные графа развития танцора WCS (v2).
+   Источник правды для index.html. Структура — см. 01-schema.md.
+   Голоса: self=я, partner=коннекшен, music=музыка.
+   Источники: McK=McKeever, rep=рисёрч-репорт, map=карта 14 веток. */
+window.WCS_GRAPH = {
+  "star": {"label":"Самовыражение в паре","sub":"полярная звезда"},
+  "voices": {"self":{"label":"я","color":"#7F77DD"},"partner":{"label":"коннекшен","color":"#D85A30"},"music":{"label":"музыка","color":"#1D9E75"}},
+  "branches": [{"id":"tech","label":"Техника","sub":"произношение"},{"id":"phr","label":"Фразы","sub":"разговорник"},{"id":"word","label":"Слова","sub":"вариации"},{"id":"talk","label":"Разговор","sub":"самовыражение"}],
+  "levels": [{"id":"Б","label":"Базовый"},{"id":"С","label":"Средний"},{"id":"П","label":"Продвинутый"}],
+  "blocks": [{"id":"b1","months":"0–3 мес","label":"Beginner-курс (база + первый вип)"},{"id":"b2","months":"3–6 мес","label":"Доводка техники и музыкальность"},{"id":"b3","months":"6–9 мес","label":"Вариации и синкопы"},{"id":"b4","months":"9–12 мес","label":"Продвинутый словарь"},{"id":"b5","months":"12+ мес","label":"Свободный разговор"}],
+  "skills": [
+    {"id":"tech-basic-rhythm","label":"базовый ритм (walk-walk-triple-triple)","branch":"tech","level":"Б","voices":["self","music"],"needs":[],"src":"McK,rep","desc":"Базовый ритм WCS walk-walk-triple-step (1-2-3&4-5&6): лид стартует с левой, фоллоу с правой. McKeever советует сначала прохлопать ритм, а потом ставить в ноги.","block":"b1"},
+    {"id":"tech-hear-beat","label":"слышу бит (down/up)","branch":"tech","level":"Б","voices":["music"],"needs":[],"src":"McK","desc":"Слышу метроном песни: bass drum это down beat (нечётные 1,3,5,7), snare/clap это upbeat (чётные 2,4,6,8). Низкий жест рукой на down, высокий на up: «Boom tick Boom & Tick».","block":"b1"},
+    {"id":"tech-posture","label":"осанка и питч","branch":"tech","level":"С","voices":["self"],"needs":[],"src":"rep","desc":"Осанка и питч корпуса: вертикальная организация тела как первый из 8 personal movement skills (pitch → posture → footwork…) школы Swing Literacy, основа всей сольной механики.","block":"b2"},
+    {"id":"tech-frame","label":"базовый фрейм","branch":"tech","level":"Б","voices":["partner"],"needs":[],"src":"McK","desc":"Базовый фрейм: позиция и тонус рук/корпуса, через который проходят сигналы. Лид более динамичный (cushion и follow through), фоллоу более постоянный с буфером для чёткой связи рука-тело.","block":"b1"},
+    {"id":"tech-handhold","label":"хэндхолд, связь рука-тело","branch":"tech","level":"Б","voices":["partner"],"needs":["tech-frame"],"src":"McK","desc":"Хэндхолд и связь рука-тело: средние пальцы перекрываются на первой фаланге, остальные подгибаются в полуцилиндр. Хват работает как рукоятка тела, отсюда «открывание/закрывание дверей».","block":"b1"},
+    {"id":"tech-slot","label":"слот / track","branch":"tech","level":"Б","voices":["self","partner"],"needs":[],"src":"McK,map","desc":"Слот (track): прямая линия 8-10 футов, по которой ходит фоллоу как Primary Mover, а лид остаётся впереди или открывает двери влево/вправо. Pass vs Push: пропустить и поймать на другой стороне.","block":"b1"},
+    {"id":"tech-send-catch","label":"send & catch","branch":"tech","level":"Б","voices":["partner"],"needs":["tech-frame"],"src":"McK","desc":"Send & Catch: лид начинает паттерн и создаёт момент, шагая назад вниз по слоту на счёт 1, фоллоу продолжает движение с ровным темпом, пока его не остановят или перенаправят, добавляя ротацию для ориентации на лида.","block":"b1"},
+    {"id":"tech-anchor","label":"anchor (положение тела / стретч)","branch":"tech","level":"Б","voices":["partner","self"],"needs":["tech-send-catch"],"src":"McK,rep","desc":"Anchor: момент, где лид и фоллоу создают эластичный стретч в оппозиции, завершающий один паттерн и перенаправляющий фоллоу в новое движение. Всегда на последнем чётном счёте (6 или 8), стартует новый паттерн на следующий down beat.","block":"b1"},
+    {"id":"tech-comp-stretch","label":"compression & stretch","branch":"tech","level":"Б","voices":["partner"],"needs":["tech-anchor"],"src":"McK","desc":"Compression & stretch (lean in, sit back): WCS дефолтит в оппозицию. Партнёры наклоняются друг к другу (A-frame), затем отправляют бёдра и спину назад в leveraged counter (V-frame), с cushioning на входе в компрессию и выходе в leverage.","block":"b1"},
+    {"id":"tech-weight-transfer","label":"перенос веса, critical timing","branch":"tech","level":"С","voices":["self"],"needs":["tech-basic-rhythm"],"src":"McK","desc":"Перенос веса и critical timing: посыл и приём, нога толкается от пола; цикл Strike, Transfer, Complete, Prepare. Вес переносится постепенно через долю (heavy-light-light), а не разом в начале счёта.","block":"b1"},
+    {"id":"tech-rolling-count","label":"rolling count","branch":"tech","level":"С","voices":["music","self"],"needs":["tech-weight-transfer"],"src":"rep,McK","desc":"Rolling count (система Universal Unit Skippy Blair / GSDTA): непрерывный синкопированный счёт через Unit Card System как инструмент тайминга и креативного ритма, даёт движение вне доли (off-beat).","block":"b2"},
+    {"id":"tech-elasticity","label":"elasticity / eccentric stretch","branch":"tech","level":"С","voices":["partner"],"needs":["tech-comp-stretch"],"src":"rep,McK","desc":"Elasticity / eccentric stretch: эластичная связь как «резинка» вместо push-pull Линди/Сальсы; eccentric растяжение через Chair Drill, оппозиция и резистивный релиз вместо жёсткого упора.","block":"b2"},
+    {"id":"tech-leverage","label":"leverage vs compression","branch":"tech","level":"С","voices":["partner"],"needs":["tech-elasticity"],"src":"rep","desc":"Leverage против compression: две половины эластичной связи WCS, растяжение (leverage через counterweight) и сжатие (compression). Различение того, когда тянуть, а когда поджимать в counter.","block":"b2"},
+    {"id":"tech-pulse","label":"pulse","branch":"tech","level":"С","voices":["self","music"],"needs":["tech-rolling-count"],"src":"rep","desc":"Pulse: непрерывная ритмическая компрессия-растяжение тела, дающая WCS «свинговое» дыхание и связь с backbone музыки. Это не КОГДА шаг (timing), а КАК тело дышит с долей, акцентируя down/up beat.","block":"b2"},
+    {"id":"tech-turning","label":"turning technique","branch":"tech","level":"С","voices":["self"],"needs":["tech-basic-rhythm"],"src":"rep","desc":"Turning technique: механика поворотов и спинов, баланс на CPB и подготовка к фигурам с ротацией (turning basic, free spin, double spins). Один из 8 personal movement skills.","block":"b1"},
+    {"id":"tech-contrabody","label":"contrabody (CBM)","branch":"tech","level":"С","voices":["self"],"needs":["tech-posture"],"src":"rep","desc":"Contrabody (CBM): transverse opposition корпуса, противонаправленное вращение плеч и бёдер. Часть spinal freedom; седьмой из 8 personal movement skills Swing Literacy.","block":"b2"},
+    {"id":"tech-direction","label":"directional intent","branch":"tech","level":"С","voices":["self","partner"],"needs":["tech-anchor"],"src":"McK","desc":"Directional intent: свинг танцуется с намерением вверх или вниз по слоту, ища оппозицию с партнёром, почти без моментов вертикального покоя спины. Держит связь активной и включает tonic-мышцы (psoas).","block":"b2"},
+    {"id":"tech-isolations","label":"изоляции, level changes","branch":"tech","level":"П","voices":["self"],"needs":["tech-contrabody"],"src":"rep","desc":"Изоляции и смены уровня: контроль отдельных частей тела и level changes как продвинутый сольный стайлинг, надстройка над contrabody и spinal freedom.","block":"b4"},
+    {"id":"tech-spinal","label":"spinal freedom","branch":"tech","level":"П","voices":["self"],"needs":["tech-contrabody"],"src":"McK","desc":"Spinal freedom: flexion и extension позвоночника, transverse opposition (contrabody) и spinal circles, дающие телу свободу и объём движения на продвинутом уровне.","block":"b4"},
+    {"id":"tech-arm-styling","label":"arm styling (навык тела)","branch":"tech","level":"П","voices":["self"],"needs":["tech-turning"],"src":"rep","desc":"Arm styling как навык тела: оформление рук из центра, восьмой и финальный из 8 personal movement skills Swing Literacy (pitch → … → arm styling), надстройка над поворотами.","block":"b4"},
+    {"id":"tech-adv-anchor","label":"продвинутый anchor","branch":"tech","level":"П","voices":["partner"],"needs":["tech-elasticity"],"src":"rep","desc":"Продвинутый anchor: переход от фиксированного ритма к anchor как положению тела и состоянию связи, с вариациями и игрой на эластичности, а не заученному foot pattern.","block":"b4"},
+    {"id":"tech-swung","label":"swung rhythm / swing action","branch":"tech","level":"П","voices":["self","music"],"needs":["tech-pulse"],"src":"McK","desc":"Swung rhythm / swing action: синкопированный side dominant triple с pendulum-действием в теле и качанием бедра через перенос веса, дающий WCS его «свинг».","block":"b4"},
+    {"id":"phr-sugar-push","label":"Sugar Push","branch":"phr","level":"Б","voices":["partner"],"needs":["tech-anchor","tech-send-catch"],"src":"McK,rep","desc":"Sugar Push (Push Break): 6-счётная фигура на компрессии. Лид шагает назад на 1, собирается в open third на 2, поджимает в closed third на 3& предлагая cushion-компрессию, шлёт фоллоу обратно на 4 и оседает в anchor на 5&6.","block":"b1"},
+    {"id":"phr-lsp","label":"Left Side Pass","branch":"phr","level":"Б","voices":["partner"],"needs":["tech-slot"],"src":"McK,rep","desc":"Left Side Pass: партнёры меняются местами мимо левой стороны лида. Лид шагает вниз по слоту на 1, открывает слот слева на 2; фоллоу проходит, скрещивая левую перед правой на «&» счёта 3, лид встаёт назад на 4 и притормаживает в anchor.","block":"b1"},
+    {"id":"phr-uat","label":"Underarm Turn / RSP","branch":"phr","level":"Б","voices":["partner"],"needs":["phr-lsp"],"src":"McK,rep","desc":"Underarm Turn (RSP): лид открывает правую сторону, поднимает левую руку выше глаз фоллоу, разворачивает ладонь, пальцы указывают через лицо фоллоу (inside turn), создаёт «окно» и halo вокруг головы; фоллоу разворачивается на 180° к лиду.","block":"b1"},
+    {"id":"phr-starter","label":"Starter Step / Throwout","branch":"phr","level":"Б","voices":["partner"],"needs":["tech-basic-rhythm"],"src":"rep,McK","desc":"Starter Step / Throwout (Triple Rhythm Break у Skippy Blair): стартовый паттерн-«запуск», открывающий танец из закрытой/базовой позиции в слот; первый паттерн на уроке Beginner+.","block":"b1"},
+    {"id":"phr-sugar-tuck","label":"Sugar Tuck (intro preps)","branch":"phr","level":"С","voices":["partner"],"needs":["phr-sugar-push","tech-turning"],"src":"McK","desc":"Sugar Tuck: первое знакомство с preps (подготовкой к фигуре). Из шугар-пуша лид через компрессию «подворачивает» фоллоу с подготовкой к повороту. Beginner+ паттерн у McKeever. Синоним: Lazy Man Tuck (JT).","block":"b1"},
+    {"id":"phr-passing-tuck","label":"Passing Tuck","branch":"phr","level":"С","voices":["partner"],"needs":["phr-sugar-tuck"],"src":"McK","desc":"Passing Tuck: tuck, совмещённый с проходом по слоту, фоллоу подворачивается и проходит дальше; развитие sugar tuck из списка Beginner+ McKeever. Синоним: Traveling Tuck.","block":"b1"},
+    {"id":"phr-turning-basic","label":"Turning Basic","branch":"phr","level":"С","voices":["self","partner"],"needs":["tech-turning"],"src":"McK","desc":"Turning Basic: базовый паттерн с поворотом на основе turning technique; вводит ротацию в знакомую базовую структуру. Beginner+ у McKeever.","block":"b1"},
+    {"id":"phr-free-spin","label":"Free Spin","branch":"phr","level":"С","voices":["self"],"needs":["tech-turning"],"src":"McK","desc":"Free Spin: фоллоу получает автономный спин с РАЗРЫВОМ коннекта (рука отпускается). НЕ синоним Inside Turn / Spinning Left Side Pass — там связь сохраняется. Beginner+ у McKeever.","block":"b1"},
+    {"id":"phr-first-whip","label":"First Whip (8-count, closed)","branch":"phr","level":"С","voices":["partner"],"needs":["tech-frame","tech-comp-stretch"],"src":"McK,rep","desc":"First Whip (8-count, closed): структурная точка перегиба куррикулума — вводит закрытую позицию и 8-счётный ритм. Никогда не первый урок, обычно урок 5-11. Требует фрейма и compression/stretch.","block":"b1"},
+    {"id":"phr-basket-whip","label":"Basket Whip","branch":"phr","level":"С","voices":["partner"],"needs":["phr-first-whip"],"src":"McK","desc":"Basket Whip: вариация випа с переходом в basket-позицию; одна из первых whip-вариаций списка Beginner+ McKeever.","block":"b1"},
+    {"id":"phr-reverse-whip","label":"Reverse Whip","branch":"phr","level":"П","voices":["partner"],"needs":["phr-first-whip"],"src":"McK","desc":"Reverse Whip: вип в обратном направлении вращения; надстройка над first whip (McKeever: «Reverse Whip + variations»).","block":"b3"},
+    {"id":"phr-hammerlock","label":"Hammerlock + exits","branch":"phr","level":"П","voices":["partner"],"needs":["phr-first-whip"],"src":"McK","desc":"Hammerlock + exits: Advanced-фигура с заведением руки за спину и выходами в basket или shadow позиции; одна из вершин паттерн-вокабуляра McKeever.","block":"b4"},
+    {"id":"phr-long-combos","label":"длинные связки, смены направления","branch":"phr","level":"П","voices":["partner"],"needs":[],"src":"rep","desc":"Длинные связки со сменами направления: композиции из нескольких паттернов и continuous-вариаций, продвинутый уровень применения вокабуляра.","block":"b4"},
+    {"id":"word-send-vs-push","label":"вести вперёд / придержать","branch":"word","level":"Б","voices":["partner"],"needs":["tech-send-catch"],"src":"McK","desc":"Вести вперёд против придержать: базовый выбор лида внутри Send & Catch — пропустить фоллоу через слот (pass) или поймать впереди и отправить назад (push); основа чёткого, не размытого лида.","block":"b2"},
+    {"id":"word-other-hand","label":"те же фигуры другой рукой","branch":"word","level":"Б","voices":["partner"],"needs":["phr-lsp"],"src":"McK","desc":"Те же фигуры другой рукой: использование разных рук для одних и тех же паттернов, расширяющее вход и выход; пункт списка Beginner+ McKeever.","block":"b2"},
+    {"id":"word-footwork-var","label":"простые footwork-вариации","branch":"word","level":"Б","voices":["self"],"needs":["tech-basic-rhythm"],"src":"rep","desc":"Простые footwork-вариации: мелкие сольные вариации работы ног (например на anchor) внутри знакомых паттернов; первый слой самовыражения в базе.","block":"b2"},
+    {"id":"word-redirections","label":"redirections (перенаправить)","branch":"word","level":"С","voices":["partner"],"needs":["phr-passing-tuck"],"src":"rep,McK","desc":"Redirections: перенаправление движения фоллоу в середине паттерна, изменение траектории через связь; основа side redirect и продвинутого ведения.","block":"b3"},
+    {"id":"word-preps","label":"preps (подготовка к фигуре)","branch":"word","level":"С","voices":["partner"],"needs":["phr-sugar-tuck"],"src":"McK","desc":"Preps: подготовка к фигуре — короткий сигнал/набор момента перед поворотом или подворотом (введён через sugar tuck), позволяющий фоллоу прочитать намерение заранее.","block":"b3"},
+    {"id":"phr-roll","label":"roll-in / roll-out","branch":"phr","level":"С","voices":["partner"],"needs":["tech-comp-stretch","tech-elasticity"],"src":"rep","desc":"Roll-in / roll-out: одна фигура — фоллоу вкручивается к лиду в обнимающую sweetheart-позицию (roll-in) и выкручивается обратно в открытую (roll-out) через компрессию и эластичную связь. Синонимы: Sweetheart, Cuddle, Wrap, Inside Roll (одно и то же). YoYo — вариация. Shadow — другое.","block":"b3"},
+    {"id":"word-slingshot","label":"slingshot","branch":"word","level":"С","voices":["partner"],"needs":["phr-passing-tuck"],"src":"McK","desc":"Slingshot: фигура с накоплением стретча и «выстреливанием» фоллоу обратно по слоту как из рогатки; Intermediate-вокабуляр McKeever.","block":"b3"},
+    {"id":"word-cutoff","label":"cutoff","branch":"word","level":"С","voices":["partner"],"needs":["phr-passing-tuck"],"src":"McK","desc":"Cutoff: лид «обрезает» движение фоллоу, останавливая/перенаправляя проход; Intermediate-вокабуляр McKeever.","block":"b3"},
+    {"id":"word-basic-sync","label":"базовые синкопы (KBC, triple→single)","branch":"word","level":"С","voices":["music","self"],"needs":["tech-rolling-count","tech-weight-transfer"],"src":"McK","desc":"Базовые синкопы: secret handshake, KBC anchor, замена triples на singles, triple в 1. Изменение дефолтного ритма паттерна на знакомом вокабуляре. Intermediate у McKeever.","block":"b3"},
+    {"id":"word-delayed","label":"delayed double rhythm / delayed «1»","branch":"word","level":"С","voices":["music"],"needs":["tech-rolling-count"],"src":"McK","desc":"Delayed double rhythm / delayed «1»: намеренная задержка движения и доли (отложенный первый счёт), создающая контраст; Intermediate-синкопа у McKeever.","block":"b3"},
+    {"id":"word-rock-and-go","label":"rock and go","branch":"word","level":"С","voices":["partner"],"needs":["phr-passing-tuck"],"src":"McK","desc":"Rock and Go: rock-step с последующим продолжением движения, вариативная замена входа в паттерн; базовый Intermediate-приём McKeever.","block":"b3"},
+    {"id":"word-folds","label":"folds","branch":"word","level":"С","voices":["partner"],"needs":["phr-passing-tuck"],"src":"McK","desc":"Folds: семейство «складок» — заведений руки/корпуса (база hammerlock и sweetheart-позиций); Intermediate-вокабуляр McKeever.","block":"b3"},
+    {"id":"word-double-spins","label":"double spins","branch":"word","level":"С","voices":["self"],"needs":["tech-turning"],"src":"McK","desc":"Double spins: два оборота подряд в повороте фоллоу, надстройка над turning technique; Intermediate-вокабуляр McKeever.","block":"b3"},
+    {"id":"word-adv-sync","label":"продвинутые синкопы","branch":"word","level":"П","voices":["music","self"],"needs":["word-basic-sync"],"src":"McK","desc":"Продвинутые синкопы: сложные ритмические замены и наслоения поверх базовых синкоп; Advanced-уровень McKeever.","block":"b4"},
+    {"id":"word-over-rotation","label":"over-rotation / continuous","branch":"word","level":"П","voices":["self","partner"],"needs":["word-rock-and-go"],"src":"McK","desc":"Over-rotation / continuous: продвинутые rock-and-go вариации с перекруткой, например continuous roll in/out или sugar tuck с behind-the-back сменой руки и redirect в fold. Advanced у McKeever.","block":"b4"},
+    {"id":"word-construct","label":"конструирование из блоков","branch":"word","level":"П","voices":["partner"],"needs":["phr-first-whip"],"src":"map","desc":"Конструирование из блоков: сборка фигур из элементов (entry → body action → anchor) и переходов как конструктора, продвинутый навык построения паттернов из карты компетенций.","block":"b4"},
+    {"id":"talk-call-response","label":"вопрос — ответ","branch":"talk","level":"Б","voices":["partner"],"needs":["phr-lsp"],"src":"McK,map","desc":"Вопрос — ответ: метафора call-and-response как суть диалога лид-фоллоу; лид «спрашивает», фоллоу «отвечает». В классе McKeever это и пед-приём (учитель задаёт вопросы, класс отвечает).","block":"b2"},
+    {"id":"talk-presence","label":"присутствие, не паникую от ошибки","branch":"talk","level":"Б","voices":["self"],"needs":[],"src":"rep","desc":"Присутствие: не паниковать от ошибки, оставаться в моменте и в контакте. Playful social mindset первой стадии — «главное не идеально, а с удовольствием и в связи».","block":"b1"},
+    {"id":"talk-basic-music","label":"базовая музыкальность","branch":"talk","level":"Б","voices":["music"],"needs":["tech-hear-beat"],"src":"McK","desc":"Базовая музыкальность: связь с backbone музыки, чёткий тайминг и различение down beat от upbeat (pulse and accent), на основе слышимого метронома.","block":"b1"},
+    {"id":"talk-playfulness","label":"маленькая игривость","branch":"talk","level":"Б","voices":["self","partner"],"needs":[],"src":"map","desc":"Маленькая игривость: первые проблески игрового отношения к танцу в безопасных рамках, до полноценной импровизации; ранний playful mindset из карты.","block":"b1"},
+    {"id":"talk-listening","label":"активное слушание","branch":"talk","level":"С","voices":["partner"],"needs":["tech-elasticity"],"src":"McK,rep","desc":"Активное слушание партнёра: чтение стретча и компрессии телом, а не мозгом, отклик на тон связи. McKeever строит и в классе среду active listening (вопросы, отклик, индивидуальный контакт).","block":"b2"},
+    {"id":"talk-intonation","label":"интонирование (стайлинг из центра)","branch":"talk","level":"С","voices":["self"],"needs":["tech-contrabody"],"src":"rep,map","desc":"Интонирование: стайлинг из центра как «окраска» движения, intention перед стилем («стиль рождается из техники»); свой оттенок на знакомом вокабуляре через contrabody/spinal freedom.","block":"b2"},
+    {"id":"talk-pauses","label":"паузы (оставить место)","branch":"talk","level":"С","voices":["partner","music"],"needs":["talk-basic-music"],"src":"rep","desc":"Паузы: оставить место в танце, ghost-beats и holds, не заполнять каждую долю движением; контраст и дыхание во фразе.","block":"b2"},
+    {"id":"talk-phrasing","label":"фразировка (8/32)","branch":"talk","level":"С","voices":["music"],"needs":["talk-basic-music"],"src":"McK","desc":"Фразировка: понимание 4/4 тактов, восьмёрок, minor и major музыкальных фраз (8/32 счёта) и привязка действий к структуре песни.","block":"b2"},
+    {"id":"talk-prelead","label":"подводка к теме (прелид)","branch":"talk","level":"С","voices":["partner"],"needs":["word-preps"],"src":"McK","desc":"Подводка к теме (прелид): расширение preps до коммуникативного намёка — заранее «анонсировать» партнёру, к чему ведёшь, чтобы предложение было читаемым.","block":"b3"},
+    {"id":"talk-hijack-intro","label":"перехват — интро","branch":"talk","level":"С","voices":["partner"],"needs":["word-redirections"],"src":"rep,map","desc":"Перехват — интро: первые follower-initiated моменты, где фоллоу инициирует стретч/связь и берёт инициативу через redirections; начало равноправного диалога.","block":"b3"},
+    {"id":"talk-accents","label":"акценты — базовые хиты","branch":"talk","level":"С","voices":["music","partner"],"needs":["talk-phrasing"],"src":"McK","desc":"Акценты — базовые хиты: показ контраста между down beat и upbeat, попадание в простые акценты/брейки музыки; pulse and accent как backbone музыкальности.","block":"b2"},
+    {"id":"talk-dialogue","label":"полный диалог (предложил-развил)","branch":"talk","level":"П","voices":["partner"],"needs":["talk-listening"],"src":"map","desc":"Полный диалог (предложил-развил): зрелая musical conversation в паре — call-and-response, где предложение одного развивается другим; продвинутая стадия импровизации вдвоём.","block":"b5"},
+    {"id":"talk-change-topic","label":"смена темы / продвинутый перехват","branch":"talk","level":"П","voices":["partner"],"needs":["word-construct"],"src":"map","desc":"Смена темы / продвинутый перехват: переключение направления диалога в паре через реконфигурацию паттернов в реальном времени и инициативу любой роли.","block":"b5"},
+    {"id":"talk-layers","label":"акценты и слои (мелодия vs ритм)","branch":"talk","level":"П","voices":["music","partner"],"needs":["talk-accents"],"src":"rep","desc":"Акценты и слои: игра с разными слоями музыки (мелодия против ритма), matching instruments & texture, выбор за каким голосом песни следовать.","block":"b4"},
+    {"id":"talk-play","label":"игра, юмор, цитаты, ирония","branch":"talk","level":"П","voices":["self","partner","music"],"needs":[],"src":"map","desc":"Игра, юмор, цитаты, ирония: высший слой импровизации и self-expression — игровое нарушение ожиданий и «характер» в танце без вреда партнёру.","block":"b5"},
+    {"id":"talk-song-new","label":"сделать песню «новой»","branch":"talk","level":"П","voices":["music","partner"],"needs":["talk-phrasing"],"src":"rep","desc":"Сделать песню «новой»: song mapping и проактивное слушание, чтобы интерпретировать знакомую музыку свежо через forward-planning к брейкам и динамике.","block":"b4"},
+    {"id":"talk-own-voice","label":"свой узнаваемый почерк","branch":"talk","level":"П","voices":["self"],"needs":["talk-intonation"],"src":"map","desc":"Свой узнаваемый почерк: personal style по формуле Technique → Intention → Repetition, выражение без затрат внимания (presence of mind); вершина self-expression.","block":"b5"},
+    {"id":"tech-third-foot","label":"Third foot position (open/closed third)","branch":"tech","level":"Б","voices":["self"],"needs":["tech-anchor"],"src":"McK","desc":"Третья позиция стопы: одна нога впереди (носок к партнёру), другая сзади под ~45°. Open third — стопы врозь, closed third — собраны, пятка перед сводом задней. База anchor-степа и почти каждого паттерна.","block":"b1"},
+    {"id":"tech-body-flight","label":"Body flight / passing feet","branch":"tech","level":"Б","voices":["self"],"needs":["tech-basic-rhythm"],"src":"McK","desc":"Body flight: перенос ритма в перемещение, проходя внутреннюю стопу впереди (не зацепляя позади) во время триплов. McKeever отрабатывает это, водя класс по кругу line of dance вперёд, назад и со сменой направления.","block":"b1"},
+    {"id":"tech-cpb","label":"CPB (Center Point of Balance)","branch":"tech","level":"С","voices":["self"],"needs":["tech-weight-transfer"],"src":"map","desc":"CPB — центральная точка баланса, от которой генерируется всё движение WCS; лид идёт от CPB (бедро/плечо назад на счёт 2). Танец «от CPB» невозможен при tap-step вместо триплов.","block":"b2"},
+    {"id":"tech-traffic-hand","label":"Traffic & hand-change technique","branch":"tech","level":"С","voices":["partner"],"needs":["tech-handhold","phr-uat"],"src":"McK","desc":"Техника «трафика» и смены рук: лид поднимает руку выше глаз фоллоу, разворачивает ладонь наружу, пальцы по направлению поворота, создаёт «окно» во фрейме и halo вокруг головы; рука фоллоу остаётся цилиндром вокруг двух пальцев лида.","block":"b2"},
+    {"id":"tech-planes","label":"Planes: linear / rotational / arced","branch":"tech","level":"П","voices":["self","partner"],"needs":["tech-leverage"],"src":"McK","desc":"Плоскости движения и связи: linear (вдоль слота), rotational (вращательная) и arced (дуговая). Из connection dynamics Module 2 наряду с dimension of frame и gas & brake.","block":"b4"},
+    {"id":"tech-gas-brake","label":"Gas & brake","branch":"tech","level":"С","voices":["partner"],"needs":["tech-comp-stretch"],"src":"McK","desc":"Gas & brake: управление ускорением и торможением движения партнёра через связь — «газ» разгоняет фоллоу, «тормоз» гасит к anchor. Концепт connection dynamics Module 2.","block":"b2"},
+    {"id":"phr-tuck-throwout","label":"Tuck Throwout","branch":"phr","level":"С","voices":["partner"],"needs":["phr-sugar-tuck","phr-starter"],"src":"rep","desc":"Tuck Throwout: подворот (tuck) с последующим «выбросом» фоллоу обратно в слот, объединяющий prep и throwout; L2-вариант семейства tuck.","block":"b3"},
+    {"id":"phr-yoyo","label":"Yoyo","branch":"phr","level":"П","voices":["partner"],"needs":["phr-roll"],"src":"rep","desc":"Yoyo: вариация roll-in/roll-out — фоллоу уходит и возвращается «туда-сюда» как йо-йо, на накоплении и возврате стретча. L3.","block":"b5"},
+    {"id":"phr-top-spinner","label":"Top Spinner","branch":"phr","level":"П","voices":["partner"],"needs":["word-double-spins"],"src":"McK","desc":"Top Spinner: Advanced-фигура с серией спинов фоллоу «волчком», надстройка над double spins; пункт Advanced-списка McKeever.","block":"b4"},
+    {"id":"phr-ducks","label":"Ducks","branch":"phr","level":"П","voices":["partner"],"needs":["tech-traffic-hand"],"src":"McK","desc":"Ducks: Advanced-фигура с «нырком» под руку (duck) и сменой связи; пункт Advanced-списка McKeever.","block":"b4"},
+    {"id":"phr-telemark","label":"Telemark","branch":"phr","level":"П","voices":["partner"],"needs":["phr-first-whip"],"src":"McK","desc":"Telemark: продвинутая ротационная фигура (заимствование из бального), смена направления через совместный поворот в закрытой связи; Advanced у McKeever.","block":"b4"},
+    {"id":"phr-dips","label":"Basic dips","branch":"phr","level":"П","voices":["partner"],"needs":["tech-leverage"],"src":"McK","desc":"Basic dips: базовые наклоны/провалы фоллоу с поддержкой веса; вводятся только на Advanced и требуют trusted-партнёра. Пункт Advanced-списка McKeever.","block":"b4"},
+    {"id":"word-follow-complete","label":"Follower completes own movement / active follow","branch":"word","level":"С","voices":["self","partner"],"needs":["tech-anchor"],"src":"map","desc":"Фоллоу как Primary Mover завершает собственное движение: владеет своим перемещением, стретчем и стайлингом, продолжает заданное направление с ровным темпом до остановки/редиректа, а не ждёт «таскания» лидом.","block":"b3"},
+    {"id":"talk-hits-breaks","label":"Musical breaks & hits (forward-planning)","branch":"talk","level":"П","voices":["music","partner"],"needs":["talk-accents","talk-phrasing"],"src":"map","desc":"Хиты на брейках через forward-planning: заранее услышать брейк/акцент в структуре песни и спланировать совместное попадание в него, добавив стайлинг на словах. Продвинутая стадия музыкальности карты.","block":"b5"},
+    {"id":"phr-rotating-starter","label":"Rotating Starter","branch":"phr","level":"С","voices":["partner"],"needs":["phr-starter"],"src":"rep","desc":"Rotating Starter: вариация Starter Step — фоллоу выводится в другую сторону, чем в обычном стартере.","block":"b1"},
+    {"id":"phr-inside-turn","label":"Inside Turn (Spinning LSP)","branch":"phr","level":"С","voices":["partner"],"needs":["phr-lsp"],"src":"McK","desc":"Inside Turn / Spinning Left Side Pass: LSP с поворотом фоллоу при СОХРАНЕНИИ связи (в отличие от Free Spin, где связь рвётся).","block":"b1"},
+    {"id":"phr-whip-inside","label":"Inside Whip","branch":"phr","level":"П","voices":["partner"],"needs":["phr-first-whip"],"src":"McK","desc":"Inside Whip (inside turn): вип с внутренним поворотом фоллоу. Вариация first whip (McKeever: whip variations).","block":"b3"},
+    {"id":"phr-whip-outside","label":"Outside Whip","branch":"phr","level":"П","voices":["partner"],"needs":["phr-first-whip"],"src":"McK","desc":"Outside Whip (outside turn): вип с внешним поворотом фоллоу. Вариация first whip.","block":"b3"},
+    {"id":"phr-whip-open","label":"Open Whip","branch":"phr","level":"П","voices":["partner"],"needs":["phr-first-whip"],"src":"McK","desc":"Open Whip: вип в открытой позиции (без закрытия). Вариация first whip.","block":"b3"},
+    {"id":"phr-whip-behind","label":"Behind-the-back Whip (Texas Tommy)","branch":"phr","level":"П","voices":["partner"],"needs":["phr-first-whip"],"src":"McK","desc":"Whip со сменой руки за спиной; в раунд-дансе зовётся Texas Tommy. Вариация first whip.","block":"b3"},
+    {"id":"phr-closed-tuck","label":"Closed Tuck","branch":"phr","level":"С","voices":["partner"],"needs":["phr-sugar-tuck"],"src":"rep","desc":"Closed Tuck: tuck-вариант, где фоллоу подворачивается в закрытую позицию. Семейство tuck (report L2).","block":"b3"},
+    {"id":"phr-sugar-tuck-double","label":"Sugar Tuck Double","branch":"phr","level":"С","voices":["partner"],"needs":["phr-sugar-tuck"],"src":"rep","desc":"Sugar Tuck Double: удвоенный подворот на базе sugar tuck. Семейство tuck (report L2).","block":"b3"},
+    {"id":"phr-handchange","label":"Side Pass с hand-change","branch":"phr","level":"С","voices":["partner"],"needs":["phr-uat"],"src":"McK","desc":"Side Pass / Underarm Turn со сменой руки (hand change) во время прохода. Вариант side-pass (report L2; JT «Underarm Turn with Hand Change»).","block":"b1"},
+    {"id":"phr-whip-stalker","label":"Stalker Whip","branch":"phr","level":"П","voices":["partner"],"needs":["phr-first-whip"],"src":"rep","desc":"Stalker Whip: whip-вариант, где лид «преследует» (stalk) фоллоу. Из L3-списка випов (report). Механику сверить.","block":"b3"},
+    {"id":"phr-sugar-roll","label":"Sugar Roll","branch":"phr","level":"П","voices":["partner"],"needs":["phr-roll"],"src":"rep","desc":"Sugar Roll: роллинг-вариант семейства roll-in/out (L3, report). Механику сверить.","block":"b3"},
+    {"id":"phr-boomerang","label":"Boomerang Basket","branch":"phr","level":"П","voices":["partner"],"needs":["phr-basket-whip"],"src":"rep","desc":"Boomerang Basket: basket-вариант с «бумеранг»-возвратом фоллоу (L3, report). Сверить.","block":"b3"}
+  ],
+  "milestones": [
+    {"id":"ms-understood","label":"Тебя понимают без слов","fed_by":["tech-anchor","tech-handhold","tech-weight-transfer"],"context":"класс","expr":"чистая «речь» — основа"},
+    {"id":"ms-first-phrase","label":"Первая музыкальная фраза (32 счёта)","fed_by":["phr-sugar-push","phr-lsp","phr-uat","tech-anchor"],"context":"класс","expr":"впервые сказал целое предложение под музыку"},
+    {"id":"ms-first-social","label":"Первый соц. танец с незнакомцем","fed_by":["phr-lsp","tech-slot","tech-basic-rhythm","talk-presence"],"context":"вечеринка","expr":"можешь сам поддержать разговор"},
+    {"id":"ms-first-whip","label":"Первый вип","fed_by":["phr-first-whip"],"context":"класс","expr":"открылся «закрытый» разговор"},
+    {"id":"ms-vocab","label":"Собрал базовый словарь (L1→L2)","fed_by":["phr-starter","phr-lsp","phr-uat","phr-sugar-push","phr-sugar-tuck","phr-passing-tuck","phr-free-spin","phr-first-whip"],"context":"gate","expr":"язык собран — есть чем говорить"},
+    {"id":"ms-first-variation","label":"Вставил свою первую вариацию","fed_by":["word-send-vs-push"],"context":"вечеринка","expr":"впервые сказал своё слово"},
+    {"id":"ms-first-sync","label":"Первая синкопа в ритм","fed_by":["word-basic-sync"],"context":"вечеринка","expr":"заиграл с ритмом"},
+    {"id":"ms-call-response","label":"Задал вопрос и услышал ответ","fed_by":["talk-call-response","talk-listening"],"context":"вечеринка","expr":"первый настоящий диалог"},
+    {"id":"ms-caught-accent","label":"Поймал акцент вместе с партнёром","fed_by":["talk-accents","tech-elasticity"],"context":"вечеринка","expr":"втроём совпали в моменте"},
+    {"id":"ms-first-hijack","label":"Первый перехват","fed_by":["talk-hijack-intro"],"context":"вечеринка","expr":"твой голос на равных"},
+    {"id":"ms-own-style","label":"Сделал песню «своей»","fed_by":["talk-song-new","talk-intonation","talk-play"],"context":"сцена","expr":"появился почерк"},
+    {"id":"ms-first-jj","label":"Первый Jack & Jill","fed_by":["talk-presence"],"context":"контест","expr":"вышел говорить «на людях»"}
+  ]
+};
+
+</script>
+<script>
+(function(){
+  const G = window.WCS_GRAPH;
+  if(!G){document.getElementById("graph").innerHTML="<div style='padding:20px;color:#a33'>Данные графа не загрузились (window.WCS_GRAPH отсутствует).</div>";return;}
+  const byId = {}; G.skills.forEach(s=>byId[s.id]=s);
+  const msById = {}; G.milestones.forEach(m=>msById[m.id]=m);
+  // reverse maps
+  const dependents = {}; // id -> [ids that need it]
+  G.skills.forEach(s=>s.needs.forEach(n=>{(dependents[n]=dependents[n]||[]).push(s.id)}));
+  const unlocks = {}; // skill id -> [milestone ids]
+  G.milestones.forEach(m=>m.fed_by.forEach(f=>{(unlocks[f]=unlocks[f]||[]).push(m.id)}));
+
+  document.getElementById('star-label').firstChild.textContent = G.star.label;
+  document.getElementById('star-sub').textContent = G.star.sub;
+
+  // ---- build matrix (колонки: блок-роадмап или уровень) ----
+  const matrix = document.getElementById('matrix');
+  let groupBy = (G.blocks && G.blocks.length) ? 'block' : 'level';
+  const colsFor = () => groupBy==='block' ? G.blocks : G.levels;
+  const keyFor = s => groupBy==='block' ? s.block : s.level;
+  function buildMatrix(){
+    const cols = colsFor();
+    matrix.style.gridTemplateColumns = '118px repeat('+cols.length+',minmax(150px,1fr))';
+    matrix.innerHTML='';
+    matrix.appendChild(el('div','hcell corner',''));
+    cols.forEach(c=>{
+      const h = el('div','hcell','');
+      h.innerHTML = (c.label||c.id) + (c.months?'<br><span style="font-weight:400">'+c.months+'</span>':'');
+      matrix.appendChild(h);
+    });
+    G.branches.forEach(b=>{
+      const lab = el('div','blabel'+(b.id==='talk'?' talk':''),'');
+      lab.innerHTML = b.label+'<small>'+b.sub+'</small>';
+      matrix.appendChild(lab);
+      cols.forEach(c=>{
+        const cell = el('div','cell','');
+        if(groupBy==='block'){
+          cell.dataset.block=c.id;
+          cell.addEventListener('dragover',e=>{e.preventDefault();cell.classList.add('drop-hover');});
+          cell.addEventListener('dragleave',()=>cell.classList.remove('drop-hover'));
+          cell.addEventListener('drop',e=>{e.preventDefault();cell.classList.remove('drop-hover');dropTo(c.id);});
+        }
+        G.skills.filter(s=>s.branch===b.id && keyFor(s)===c.id).forEach(s=>cell.appendChild(makeCard(s)));
+        matrix.appendChild(cell);
+      });
+    });
+    updateOrderStatus();
+  }
+  buildMatrix();
+  document.querySelectorAll('.chip[data-group]').forEach(ch=>ch.addEventListener('click',()=>{
+    document.querySelectorAll('.chip[data-group]').forEach(x=>x.classList.toggle('off', x!==ch));
+    groupBy = ch.dataset.group; reset(); buildMatrix(); applyVoiceFilter();
+  }));
+
+  function makeCard(s){
+    const c = el('div','card','');
+    c.dataset.id = s.id;
+    if(groupBy==='block'){
+      c.draggable=true;
+      c.addEventListener('dragstart',e=>{dragId=s.id;c.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',s.id);});
+      c.addEventListener('dragend',()=>c.classList.remove('dragging'));
+    }
+    const vrow = el('div','voices','');
+    s.voices.forEach(v=>vrow.appendChild(el('span','vd '+v,'')));
+    c.appendChild(vrow);
+    c.appendChild(document.createTextNode(s.label));
+    c.addEventListener('click',e=>{e.stopPropagation();selectSkill(s.id)});
+    return c;
+  }
+
+  // ---- drag-and-drop карточек между блоками + сохранение blocks.txt ----
+  let dragId=null, dirty=false, blocksHandle=null;
+  function setStatus(t,warn){ const e=document.getElementById('save-status'); e.textContent=t; e.style.color=warn?'#A32D2D':'var(--muted)'; }
+  const blockIndex=bid=>G.blocks.findIndex(b=>b.id===bid);
+  function lateNeedsOf(s){ // транзитивные пререквизиты в более позднем блоке
+    const si=blockIndex(s.block), out=[];
+    ancestors(s.id).forEach(a=>{ const n=byId[a]; if(n&&n.block&&blockIndex(n.block)>si) out.push(n); });
+    return out;
+  }
+  function updateOrderStatus(){
+    const e=document.getElementById('order-status'); if(!e) return;
+    if(groupBy!=='block'){ e.textContent=''; return; }
+    let v=0; G.skills.forEach(s=>{ if(s.block) v+=lateNeedsOf(s).length; });
+    e.textContent = v? ('⚠ '+v+' наруш. порядка') : '✓ порядок ок';
+    e.style.color = v? '#A32D2D':'#1D9E75';
+  }
+  function dropTo(blockId){
+    const s=G.skills.find(x=>x.id===dragId); dragId=null;
+    if(!s||s.block===blockId) return;
+    s.block=blockId; dirty=true; reset(); buildMatrix(); applyVoiceFilter();
+    setStatus('● перемещено, не сохранено',true);
+    const late=lateNeedsOf(s);
+    if(late.length) showOrderBanner(s,late); else hideOrderBanner();
+  }
+  function showOrderBanner(s,late){
+    const b=document.getElementById('order-banner'); const bl=G.blocks.find(x=>x.id===s.block);
+    b.innerHTML='⚠ «'+s.label+'» теперь в «'+(bl?bl.label:s.block)+'», но пререквизиты позже: '+late.map(n=>n.label).join(', ')+'. &nbsp;';
+    const fix=el('button','btn','Подтянуть в этот блок'); fix.onclick=()=>pullPrereqs(s.id);
+    const keep=el('button','btn','Оставить как есть'); keep.style.marginLeft='4px'; keep.onclick=hideOrderBanner;
+    b.appendChild(fix); b.appendChild(keep); b.style.display='block';
+  }
+  function hideOrderBanner(){ const b=document.getElementById('order-banner'); b.style.display='none'; b.innerHTML=''; }
+  function pullPrereqs(id){
+    const s=byId[id];
+    lateNeedsOf(s).forEach(n=>{ n.block=s.block; });
+    dirty=true; hideOrderBanner(); reset(); buildMatrix(); applyVoiceFilter();
+    setStatus('● пререквизиты подтянуты, не сохранено',true);
+  }
+  function genBlocksTxt(){
+    let o='# Блоки изучения (~3 мес каждый). Перемести id между строками b*: чтобы изменить блок узла.\n';
+    o+='# Формат: [blocks] bN | месяцы | название ; затем [assign] bN: id, id, ...\n\n[blocks]\n';
+    G.blocks.forEach(b=>o+=b.id+' | '+b.months+' | '+b.label+'\n');
+    o+='\n[assign]\n';
+    G.blocks.forEach(b=>{ o+=b.id+': '+G.skills.filter(s=>s.block===b.id).map(s=>s.id).join(', ')+'\n'; });
+    const un=G.skills.filter(s=>!s.block); if(un.length) o+='# без блока: '+un.map(s=>s.id).join(', ')+'\n';
+    return o;
+  }
+  async function saveBlocks(){
+    const text=genBlocksTxt();
+    try{
+      if(window.showOpenFilePicker){
+        if(!blocksHandle){ [blocksHandle]=await window.showOpenFilePicker({types:[{description:'blocks.txt',accept:{'text/plain':['.txt']}}]}); }
+        if(await blocksHandle.requestPermission({mode:'readwrite'})==='granted'){
+          const w=await blocksHandle.createWritable(); await w.write(text); await w.close();
+          dirty=false; setStatus('сохранено в blocks.txt ✓'); return;
+        }
+      }
+    }catch(e){ /* отмена/нет доступа → скачивание */ }
+    const blob=new Blob([text],{type:'text/plain'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='blocks.txt'; a.click();
+    setStatus('скачан blocks.txt — сохрани поверх файла в папке');
+  }
+  document.getElementById('save-blocks').addEventListener('click',saveBlocks);
+  window._road={genBlocksTxt,dropTo,saveBlocks};
+
+  // ---- milestones ----
+  const msGrid = document.getElementById('ms-grid');
+  G.milestones.forEach(m=>{
+    const c = el('div','ms-card','');
+    c.dataset.ms = m.id;
+    c.innerHTML = '<div class="ctx">'+m.context+'</div><div><b>'+m.label+'</b></div><div style="color:#8a6a1e;font-size:11.5px;margin-top:3px">'+m.expr+'</div>';
+    c.addEventListener('click',e=>{e.stopPropagation();selectMilestone(m.id)});
+    msGrid.appendChild(c);
+  });
+
+  // ---- selection ----
+  function clearMarks(){
+    document.querySelectorAll('.card,.ms-card').forEach(c=>c.classList.remove('active','req','dim'));
+    document.getElementById('edges').querySelectorAll('path.edge,line.edge').forEach(e=>e.remove());
+  }
+
+  function ancestors(id){ // transitive needs
+    const out=new Set(), stack=[...(byId[id]?byId[id].needs:[])];
+    while(stack.length){const n=stack.pop(); if(out.has(n))continue; out.add(n);
+      (byId[n]?byId[n].needs:[]).forEach(x=>stack.push(x));}
+    return out;
+  }
+
+  function selectSkill(id){
+    clearMarks();
+    const s = byId[id]; if(!s) return;
+    const anc = ancestors(id);
+    const keep = new Set([id,...anc]);
+    document.querySelectorAll('.card').forEach(c=>{
+      const cid=c.dataset.id;
+      if(cid===id) c.classList.add('active');
+      else if(anc.has(cid)) c.classList.add('req');
+      else c.classList.add('dim');
+    });
+    // milestones this unlocks (direct)
+    const ms = unlocks[id]||[];
+    document.querySelectorAll('.ms-card').forEach(c=>{
+      if(ms.includes(c.dataset.ms)) c.classList.add('req'); else c.classList.add('dim');
+    });
+    drawChain(keep);
+    infoSkill(s, ms);
+  }
+
+  function selectMilestone(id){
+    clearMarks();
+    const m = msById[id]; if(!m) return;
+    const feed = new Set(m.fed_by);
+    document.querySelectorAll('.card').forEach(c=>{
+      if(feed.has(c.dataset.id)) c.classList.add('req'); else c.classList.add('dim');
+    });
+    document.querySelectorAll('.ms-card').forEach(c=>{
+      if(c.dataset.ms===id) c.classList.add('active'); else c.classList.add('dim');
+    });
+    const pairs = m.fed_by.map(f=>[f,'ms:'+id]);
+    drawEdges(pairs);
+    infoMilestone(m);
+  }
+
+  function drawChain(keep){
+    const pairs=[];
+    keep.forEach(id=>{(byId[id]?byId[id].needs:[]).forEach(n=>{ if(keep.has(n)) pairs.push([n,id]); })});
+    drawEdges(pairs);
+  }
+
+  // ---- edges ----
+  const svg = document.getElementById('edges');
+  function centerOf(key){
+    let elm;
+    if(key.startsWith('ms:')) elm = document.querySelector('.ms-card[data-ms="'+key.slice(3)+'"]');
+    else elm = document.querySelector('.card[data-id="'+key+'"]');
+    if(!elm) return null;
+    const g = document.getElementById('graph').getBoundingClientRect();
+    const r = elm.getBoundingClientRect();
+    return {x:r.left-g.left+r.width/2, y:r.top-g.top+r.height/2, w:r.width, h:r.height};
+  }
+  function drawEdges(pairs){
+    const g = document.getElementById('graph');
+    svg.setAttribute('width',g.scrollWidth); svg.setAttribute('height',g.scrollHeight);
+    pairs.forEach(([from,to])=>{
+      const a=centerOf(from), b=centerOf(to); if(!a||!b) return;
+      const mx=(a.x+b.x)/2;
+      const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+      p.setAttribute('class','edge');
+      p.setAttribute('d','M'+a.x+','+a.y+' Q'+mx+','+a.y+' '+mx+','+((a.y+b.y)/2)+' T'+b.x+','+b.y);
+      p.setAttribute('fill','none');
+      p.setAttribute('stroke','#1D9E75');
+      p.setAttribute('stroke-width','1.6');
+      p.setAttribute('opacity','0.55');
+      p.setAttribute('marker-end','url(#arrow)');
+      svg.appendChild(p);
+    });
+  }
+
+  // ---- info panel ----
+  function labelsOf(ids){return ids.map(i=>byId[i]?byId[i].label:i).join(', ')||'—'}
+  function infoSkill(s,ms){
+    const br = G.branches.find(b=>b.id===s.branch);
+    document.getElementById('info').innerHTML =
+      '<b>'+s.label+'</b> &nbsp; <span class="k">'+br.label+' · уровень '+s.level+
+      ' · голоса: '+s.voices.map(v=>G.voices[v].label).join(', ')+' · ист.: '+s.src+'</span>'+
+      (s.desc?'<br>'+s.desc:'')+
+      '<br><span class="k">нужно для (прямо):</span> '+labelsOf(s.needs)+
+      '<br><span class="k">открывает вехи:</span> '+(ms.length?ms.map(i=>msById[i].label).join(', '):'—');
+  }
+  function infoMilestone(m){
+    document.getElementById('info').innerHTML =
+      '★ <b>'+m.label+'</b> &nbsp; <span class="k">'+m.context+' · '+m.expr+'</span>'+
+      '<br><span class="k">питается узлами:</span> '+labelsOf(m.fed_by);
+  }
+
+  // ---- controls ----
+  const activeVoices = new Set(['self','partner','music']);
+  document.querySelectorAll('.chip[data-voice]').forEach(ch=>{
+    ch.addEventListener('click',()=>{
+      const v=ch.dataset.voice;
+      if(activeVoices.has(v)){activeVoices.delete(v);ch.classList.add('off')}
+      else{activeVoices.add(v);ch.classList.remove('off')}
+      applyVoiceFilter();
+    });
+  });
+  function applyVoiceFilter(){
+    document.querySelectorAll('.card').forEach(c=>{
+      const s=byId[c.dataset.id];
+      const ok=s.voices.some(v=>activeVoices.has(v));
+      c.classList.toggle('voiceoff',!ok);
+    });
+  }
+  document.getElementById('toggle-ms').addEventListener('click',function(){
+    const sec=document.getElementById('ms-section');
+    sec.classList.toggle('hidden');
+    this.textContent = sec.classList.contains('hidden')?'Показать вехи':'Скрыть вехи';
+  });
+  document.getElementById('reset').addEventListener('click',reset);
+  function reset(){clearMarks();document.getElementById('info').innerHTML='Выбери узел или веху, чтобы увидеть связи.'}
+  document.getElementById('graph').addEventListener('click',reset);
+  window.addEventListener('resize',()=>{ // redraw active selection
+    const a=document.querySelector('.card.active'); const m=document.querySelector('.ms-card.active');
+    if(a) selectSkill(a.dataset.id); else if(m) selectMilestone(m.dataset.ms);
+  });
+
+  function el(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;return e;}
+})();
+</script>
+</body>
+</html>
