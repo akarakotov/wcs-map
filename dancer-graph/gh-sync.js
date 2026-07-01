@@ -3,9 +3,14 @@
    1) На https (опубликованный сайт) подтягивает СВЕЖИЕ graph.txt + blocks.txt и
       обновляет window.WCS_GRAPH до отрисовки. На file:// тихо пропускает —
       остаётся вшитый снимок (см. build.mjs).
-   2) Сохраняет правки обратно в репозиторий через GitHub Contents API по токену,
-      который пользователь вводит один раз; токен хранится ТОЛЬКО в его браузере
-      (localStorage) и уходит только на api.github.com. В коде токенов НЕТ.
+   2) Сохраняет правки обратно в репозиторий через GitHub Contents API.
+      Авторизация — «Войти через GitHub» (OAuth, D-095): страница уводит на
+      github.com/login/oauth/authorize, наш прокси /github-oauth/callback меняет
+      код на токен и возвращает его во fragment (#gh_token=…). Токен хранится
+      ТОЛЬКО в браузере пользователя (localStorage) и уходит только на
+      api.github.com. Несохранённая правка перед редиректом заначивается в
+      sessionStorage и докоммичивается автоматически после возврата.
+      Fallback: пока OAUTH.clientId пуст — ручной ввод токена (prompt).
 
    Парсер ниже — зеркало build.mjs. Формат менять синхронно в обоих местах. */
 (function () {
@@ -14,6 +19,13 @@
   var DIR = 'dancer-graph/';          // путь внутри репо (для Contents API)
   var API = 'https://api.github.com/repos/' + REPO + '/contents/';
   var TKEY = 'wcs_gh_token';
+
+  // OAuth (D-095). clientId публичный по определению; secret живёт на прокси.
+  var OAUTH = {
+    clientId: '',  // ← заполнить после регистрации OAuth-app (Client ID)
+    proxy: 'https://wcs-yerevan-production-dg7vj.ondigitalocean.app/github-oauth/callback',
+    scope: 'public_repo'
+  };
 
   // ---------- парсер (зеркало build.mjs) ----------
   function splitCell(s) { return s ? s.split(',').map(function (x) { return x.trim(); }).filter(Boolean) : []; }
@@ -58,11 +70,24 @@
   }
 
   // ---------- подтянуть свежие данные перед отрисовкой ----------
+  // Сначала api.github.com (CORS открыт, содержимое свежее сразу после коммита,
+  // без ~минутного лага пересборки Pages); при сбое/rate-limit — файлы с Pages.
+  function fetchSource(name, required) {
+    var apiUrl = API + DIR + name + '?ref=' + BRANCH;
+    return fetch(apiUrl, { headers: { 'Accept': 'application/vnd.github.raw' }, cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('api ' + r.status); return r.text(); })
+      .catch(function () {
+        return fetch(name, { cache: 'no-store' }).then(function (r) {
+          if (!r.ok) { if (required) throw new Error(name + ' ' + r.status); return ''; }
+          return r.text();
+        });
+      });
+  }
   window.__refreshGraph = function () {
     if (!/^https?:$/.test(location.protocol)) return Promise.resolve(false); // file:// → вшитый снимок
     return Promise.all([
-      fetch('graph.txt', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error('graph.txt ' + r.status); return r.text(); }),
-      fetch('blocks.txt', { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; }).catch(function () { return ''; })
+      fetchSource('graph.txt', true),
+      fetchSource('blocks.txt', false).catch(function () { return ''; })
     ]).then(function (res) {
       var g = parseGraph(res[0]);
       if (!g.skills.length) return false;
@@ -81,18 +106,86 @@
   // ---------- токен ----------
   function getToken() { try { return localStorage.getItem(TKEY) || ''; } catch (e) { return ''; } }
   function setToken(t) { try { if (t) localStorage.setItem(TKEY, t); else localStorage.removeItem(TKEY); } catch (e) {} }
-  function ensureToken() {
-    var t = getToken();
-    if (t) return t;
-    t = window.prompt(
-      'Вставь GitHub fine-grained токен с правом «Contents: Read and write» на репозитории ' + REPO + '.\n\n' +
-      'Хранится только в этом браузере (localStorage) и уходит только на api.github.com. ' +
-      'Создать: github.com → Settings → Developer settings → Fine-grained tokens.');
-    if (t) { t = t.trim(); setToken(t); }
-    return t;
-  }
   window.__ghClearToken = function () { setToken(''); return 'токен удалён из этого браузера'; };
   window.__ghHasToken = function () { return !!getToken(); };
+
+  // ---------- тост (страницы разные, статус-элементы свои — общий оверлей) ----------
+  function toast(msg, isErr) {
+    try {
+      var t = document.createElement('div');
+      t.textContent = msg;
+      t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);' +
+        'background:' + (isErr ? '#A32D2D' : '#1D9E75') + ';color:#fff;padding:9px 16px;' +
+        'border-radius:9px;font:13px -apple-system,sans-serif;z-index:9999;box-shadow:0 3px 14px rgba(0,0,0,.25)';
+      document.body.appendChild(t);
+      setTimeout(function () { t.remove(); }, isErr ? 8000 : 4000);
+    } catch (e) { console.log(msg); }
+  }
+
+  // ---------- OAuth: уход на GitHub и возврат ----------
+  function randState() {
+    try { return crypto.randomUUID(); } catch (e) { return String(Math.random()).slice(2) + Date.now(); }
+  }
+
+  // Уводит на GitHub. pending (опционально) — несохранённая правка, докоммитим после возврата.
+  window.__ghLogin = function (pending) {
+    if (!OAUTH.clientId) return false;
+    var state = randState();
+    try {
+      sessionStorage.setItem('wcs_oauth_state', state);
+      sessionStorage.setItem('wcs_oauth_return', location.href.split('#')[0]);
+      if (pending) sessionStorage.setItem('wcs_pending_save', JSON.stringify(pending));
+    } catch (e) {}
+    location.href = 'https://github.com/login/oauth/authorize' +
+      '?client_id=' + encodeURIComponent(OAUTH.clientId) +
+      '&scope=' + encodeURIComponent(OAUTH.scope) +
+      '&redirect_uri=' + encodeURIComponent(OAUTH.proxy) +
+      '&state=' + encodeURIComponent(state);
+    return true;
+  };
+
+  // Прокси возвращает на REDIRECT_BASE (= index.html) с #gh_token=…&state=… или #gh_error=…
+  function handleOAuthReturn() {
+    if (!/[#&]gh_(token|error)=/.test(location.hash)) return;
+    var params = {};
+    location.hash.slice(1).split('&').forEach(function (kv) {
+      var i = kv.indexOf('=');
+      if (i > 0) params[kv.slice(0, i)] = decodeURIComponent(kv.slice(i + 1));
+    });
+    history.replaceState(null, '', location.pathname + location.search); // токен из адресной строки — сразу вон
+    var wantState = '';
+    try { wantState = sessionStorage.getItem('wcs_oauth_state') || ''; sessionStorage.removeItem('wcs_oauth_state'); } catch (e) {}
+    if (params.gh_error) { toast('GitHub-вход не удался: ' + params.gh_error, true); return; }
+    if (!params.gh_token) return;
+    if (!wantState || params.state !== wantState) { toast('GitHub-вход отклонён: state не совпал (CSRF-защита). Попробуй ещё раз.', true); return; }
+    setToken(params.gh_token);
+    toast('Вошёл через GitHub ✓');
+    // докоммитить заначенную правку
+    var pendingRaw = null, ret = null;
+    try {
+      pendingRaw = sessionStorage.getItem('wcs_pending_save'); sessionStorage.removeItem('wcs_pending_save');
+      ret = sessionStorage.getItem('wcs_oauth_return'); sessionStorage.removeItem('wcs_oauth_return');
+    } catch (e) {}
+    // после докоммита перечитываем страницу: __refreshGraph берёт данные из
+    // api.github.com, так что перезагрузка сразу показывает сохранённое
+    var after = function (forceReload) {
+      var here = location.href.split('#')[0];
+      if (ret && ret !== here) location.replace(ret);
+      else if (forceReload) location.reload();
+    };
+    if (pendingRaw) {
+      var p = null; try { p = JSON.parse(pendingRaw); } catch (e) {}
+      if (p && p.filename && typeof p.content === 'string') {
+        toast('Досохраняю ' + p.filename + '…');
+        window.__ghSave(p.filename, p.content, p.message || ('update ' + p.filename)).then(function (r) {
+          toast(p.filename + ': ' + r.msg, !r.ok);
+          setTimeout(function () { after(r.ok); }, r.ok ? 1200 : 4000);
+        });
+        return;
+      }
+    }
+    after(false);
+  }
 
   // ---------- base64 от UTF-8 ----------
   function b64(str) {
@@ -102,15 +195,27 @@
   }
 
   // ---------- сохранить файл коммитом ----------
+  // Без токена: OAuth настроен → заначить правку и увести на GitHub (страница
+  // перезагрузится, сохранение завершится после возврата); иначе — prompt.
   window.__ghSave = function (filename, content, message) {
-    var token = ensureToken();
-    if (!token) return Promise.resolve({ ok: false, msg: 'нужен токен' });
+    var token = getToken();
+    if (!token) {
+      if (OAUTH.clientId) {
+        window.__ghLogin({ filename: filename, content: content, message: message });
+        return Promise.resolve({ ok: false, msg: 'ухожу на GitHub-вход…' });
+      }
+      token = window.prompt(
+        'Вставь GitHub fine-grained токен с правом «Contents: Read and write» на репозитории ' + REPO + '.\n\n' +
+        'Хранится только в этом браузере (localStorage) и уходит только на api.github.com.');
+      if (!token) return Promise.resolve({ ok: false, msg: 'нужен токен' });
+      token = token.trim(); setToken(token);
+    }
     var url = API + DIR + filename;
     var h = { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' };
     // 1) узнаём текущий sha (если файл уже есть)
     return fetch(url + '?ref=' + BRANCH, { headers: h, cache: 'no-store' })
       .then(function (g) {
-        if (g.status === 401) { setToken(''); throw new Error('токен отклонён (401) — введи заново'); }
+        if (g.status === 401) { setToken(''); throw new Error('токен отклонён (401) — войди заново'); }
         if (g.status === 200) return g.json().then(function (j) { return j.sha; });
         return undefined; // 404 — создаём новый файл
       })
@@ -121,11 +226,15 @@
       })
       .then(function (put) {
         if (put.ok) return put.json().then(function (j) { return { ok: true, msg: 'сохранено в GitHub ✓', url: j.commit && j.commit.html_url }; });
-        if (put.status === 401) { setToken(''); return { ok: false, msg: 'токен отклонён (401) — введи заново' }; }
-        if (put.status === 403) return { ok: false, msg: 'нет прав (403): токену нужен Contents: write на ' + REPO };
+        if (put.status === 401) { setToken(''); return { ok: false, msg: 'токен отклонён (401) — войди заново' }; }
+        if (put.status === 403) return { ok: false, msg: 'нет прав (403): нужен доступ Contents: write на ' + REPO };
         if (put.status === 409) return { ok: false, msg: 'конфликт (409): файл изменился на сервере — перезагрузи и повтори' };
         return put.json().then(function (e) { return { ok: false, msg: 'ошибка ' + put.status + ': ' + (e.message || '') }; }).catch(function () { return { ok: false, msg: 'ошибка ' + put.status }; });
       })
       .catch(function (e) { return { ok: false, msg: (e && e.message) || 'сетевая ошибка' }; });
   };
+
+  // обработать возврат с GitHub, как только DOM готов (нужен body для тоста)
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', handleOAuthReturn);
+  else handleOAuthReturn();
 })();
