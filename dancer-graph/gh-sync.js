@@ -22,7 +22,7 @@
 
   // OAuth (D-095). clientId публичный по определению; secret живёт на прокси.
   var OAUTH = {
-    clientId: '',  // ← заполнить после регистрации OAuth-app (Client ID)
+    clientId: 'Ov23liM4b45FCgKNesP0',  // Client ID OAuth-app «WCS Graph Editor» (публичный)
     proxy: 'https://wcs-yerevan-production-dg7vj.ondigitalocean.app/github-oauth/callback',
     scope: 'public_repo'
   };
